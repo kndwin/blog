@@ -2,13 +2,6 @@
 title: Resume
 date: 2024-11-07
 ---
-
-# Kevin Nguyen
-  <kbd> **GitHub:** @kndwin</kbd>
-  <kbd> **Portfolio:** https://kndwin.vercel.app</kbd>
-  <kbd> **Email:** tnkevino@gmail.com</kbd>
-  <kbd> **Phone:** 0421606978 </kbd>
-
 ## Toolbox
 - Front-end: TailwindCSS, TypeScript, React, React Native, Expo, React Query, Nextjs.
 - Back-end: Node, Express, tRPC, Postgres, GraphQL, Prisma, SQL.

@@ -13,14 +13,11 @@ layout: home
 hero:
   name: kndwin
   tagline: I'm a developer living in Sydney, Australia.
-  image:
-    src: /profile.png
-    alt: Profile picture
   actions:
     - theme: brand
       text: Blog
-      link: /content/2024/welcome
+      link: /content/index.html
     - theme: alt
       text: Resume
-      link: /content/resume
+      link: /content/resume.html
 ---

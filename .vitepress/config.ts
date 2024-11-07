@@ -7,14 +7,14 @@ export default defineConfig({
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     nav: [
-      { text: "Home", link: "/" },
-      { text: "Blog", link: "/content/index" },
+      { text: "Blog", link: "/content" },
+      { text: "Resume", link: "/content/resume.html" },
     ],
 
     sidebar: [
       {
         text: "2024",
-        collapsed: true,
+        collapsed: false,
         items: [{ text: "Welcome", link: "/content/2024/welcome" }],
       },
     ],
