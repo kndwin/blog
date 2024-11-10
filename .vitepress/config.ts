@@ -15,7 +15,11 @@ export default defineConfig({
       {
         text: "2024",
         collapsed: false,
-        items: [{ text: "Welcome", link: "/content/2024/welcome" }],
+        items: [
+          { text: "Content is king", link: "/content/2024/content-is-king" },
+          { text: "Spending time", link: "/content/2024/spending-time" },
+          { text: "What to solve", link: "/content/2024/what-to-solve" },
+        ],
       },
     ],
   },

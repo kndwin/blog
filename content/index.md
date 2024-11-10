@@ -1,3 +1,5 @@
 # About me
 
-- Software developer that
+- Software developer
+- Want to build something fun
+- Learning NixOS + K8s

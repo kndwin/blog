@@ -2,19 +2,30 @@
 title: Resume
 date: 2024-11-07
 ---
+ 
 ## Toolbox
-- Front-end: TailwindCSS, TypeScript, React, React Native, Expo, React Query, Nextjs.
-- Back-end: Node, Express, tRPC, Postgres, GraphQL, Prisma, SQL.
-- Others: AWS (Lambda, EC2, RDS), Git, Github Action, Linux.
+ 
+ | Scope | Tech |
+ | --- | --- |
+ | Frontend |  React, Expo, Nextjs |
+ | Backend | Node, Hono, Postgres, GraphQL |
+ | Infra | AWS , K8S, Docker |
+ | AI | Qdrant, UMAP , RAG |
+ | Tools | Vim, Tmux, Git |
 
 ## Work experience
+### Sauce - Senior Software Engineer (Aug 2024 - Current)
+- Implemented auto scaling for k8s cluster by adding karpenter to qdrant search service declaratively through AWS CDK.
+- Improved Postgres performance by analysing queries with EXPLAIN and implemented several performance tweaks that reduce queries that were timing out (60 seconds) to load in 5 seconds.
+- Extended React codebase to adopt composition patterns with shadcn-ui, reduce bundle size with tree-shaking imports and implement product features.
+- Assisted in enabling GPU instances for ECS to enable our machine learning service to leverage GPU instances.
+- Rolled out semver releases with tagging and hooked up to Slack to print release notes.
 ### Mirvac - Senior Front-end Engineer (Jan 2022 - Current)
 - Successfully maintain Vite React application, utilizing react-query, Material UI, Tailwind, Zustand, OpenAPI and TypeScript.
 - Assisted in React Native application using Typescript, react-query, OpenAPI, Expo (ejected) and 
-- Designed and implemented robust branching, release, and deployment strategies to support scalability and efficiency.
+- Wrote and maintained documentation on release and branching management for web and mobile releases.
 - Implemented end-to-end testing using Playwright framework to ensure comprehensive test coverage and improve application quality.
 - Thoroughly documented existing processes and authored Request for Comments (RFCs) to improve processes.
-- Developed a ChatGPT-like interface within a tight deadline of one day, demonstrating ability to deliver under pressure.
 - Provided technical guidance and consultation to external teams, offering expertise in front-end development and assisting in proof-of-concept (POC) development.
 - Fostered effective collaboration with back-end engineers to facilitate seamless system design and successful implementation of new features.
 - Collaborated with business and designers to gather requirements, effectively managing and negotiating expectations.
@@ -66,6 +77,9 @@ date: 2024-11-07
 - Developed a recursive file structure with drag-and-drop functionality using dnd-kit.
 - Implemented a PDF annotator using `pdf.js`.
 
-## Additional Information
-- Proficient in Tetris Battle.
-- Enthusiast of cold drip coffee.
+
+::: details WIP
+
+
+:::
+
