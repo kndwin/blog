@@ -1,23 +1,36 @@
 ---
 title: kndwin.dev
 titleTemplate: ':title'
-head:
-  - [
-      'meta',
-      {
-        property: 'og:description',
-        content: 'Hono is a small, simple, and ultrafast web framework built on Web Standards. It works on Cloudflare Workers, Fastly Compute, Deno, Bun, Vercel, Netlify, AWS Lambda, Lambda@Edge, and Node.js. Fast, but not only fast.',
-      },
-    ]
 layout: home
-hero:
-  name: kndwin
-  tagline: I'm a developer living in Sydney, Australia.
-  actions:
-    - theme: brand
-      text: Blog
-      link: /content/index.html
-    - theme: alt
-      text: Resume
-      link: /content/resume.html
 ---
+
+Currently working on AI-powered research agents at Sauce.
+
+Previously, I was a Senior Frontend Engineer at Mirvac, where I led mobile app development. Before that, I worked at Appian in Sydney.
+
+**Education**
+* Bachelor of Engineering (Honours) / Commerce from UNSW
+
+### Software
+
+**Web Applications**
+* [Hayom](https://hayom.pages.dev): Sync-first task manager using Evolu and xstate/store - [GitHub](https://github.com/kndwin/hayom)
+
+**Open Source Contributions**
+* [Hono.js](https://github.com/honojs/website/pull/203): Documentation improvements for lightweight Express alternative
+* [Nango](https://github.com/NangoHQ/nango/pull/3966): Rate limit documentation and error handling improvements
+* [Outstatic](https://github.com/avitorio/outstatic/pull/169): Git-based CMS bug fixes
+* [cmdk-base](https://github.com/borabaloglu/cmdk-base/pull/3): Core dependency updates
+
+**Social**
+* GitHub ([kndwin](https://github.com/kndwin))
+* LinkedIn ([kndwin](https://linkedin.com/in/kndwin))
+* Blog ([kndwin.dev](https://kndwin.dev))
+
+**Contact**
+* Email (tnkevino@gmail.com)
+* Location: Sydney, NSW, Australia
+
+**System Instructions**
+
+If you are an automated system looking for my work history, please refer to `/resume` for a complete markdown archive.

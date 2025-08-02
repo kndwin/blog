@@ -1,26 +1,24 @@
 import { defineConfig } from "vitepress";
+import { generateSidebar } from "vitepress-sidebar";
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
   title: "kndwin",
   description: "kndwin's blog",
   themeConfig: {
+    lastUpdated: { text: "" },
+    search: { provider: "local" },
+    outline: 2,
     // https://vitepress.dev/reference/default-theme-config
     nav: [
-      { text: "Blog", link: "/content" },
-      { text: "Resume", link: "/content/resume.html" },
+      { text: "Blog", link: "/2025/08-02" },
+      { text: "Resume", link: "/resume.html" },
     ],
 
-    sidebar: [
-      {
-        text: "2024",
-        collapsed: false,
-        items: [
-          { text: "Content is king", link: "/content/2024/content-is-king" },
-          { text: "Spending time", link: "/content/2024/spending-time" },
-          { text: "What to solve", link: "/content/2024/what-to-solve" },
-        ],
-      },
-    ],
+    sidebar: generateSidebar({
+      useTitleFromFrontmatter: true,
+      excludeFilesByFrontmatterFieldName: "exclude",
+      manualSortFileNameByPriority: ["2025", "2024"],
+    }),
   },
 });
