@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "resume.md",
+                "file": "2025/08-02.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "resume"
+              "title": "08-02"
             }
           }
         ]
@@ -164,9 +164,10 @@
   },
   "active": "591180de519eba44",
   "lastOpenFiles": [
-    "2024/content-is-king.md",
-    "2024/spending-time.md",
     "2024/what-to-solve.md",
+    "2024/spending-time.md",
+    "2025/08-02.md",
+    "2024/content-is-king.md",
     "resume.md",
     "index.md",
     "Untitled.canvas"

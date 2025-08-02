@@ -21,14 +21,14 @@ date: 2024-11-07
 - Assisted in enabling GPU instances for ECS to enable our machine learning service to leverage GPU instances.
 - Rolled out semver releases with tagging and hooked up to Slack to print release notes.
 ### Mirvac - Senior Front-end Engineer (Jan 2022 - Current)
-- Successfully maintain Vite React application, utilizing react-query, Material UI, Tailwind, Zustand, OpenAPI and TypeScript.
-- Assisted in React Native application using Typescript, react-query, OpenAPI, Expo (ejected) and 
-- Wrote and maintained documentation on release and branching management for web and mobile releases.
-- Implemented end-to-end testing using Playwright framework to ensure comprehensive test coverage and improve application quality.
-- Thoroughly documented existing processes and authored Request for Comments (RFCs) to improve processes.
-- Provided technical guidance and consultation to external teams, offering expertise in front-end development and assisting in proof-of-concept (POC) development.
-- Fostered effective collaboration with back-end engineers to facilitate seamless system design and successful implementation of new features.
-- Collaborated with business and designers to gather requirements, effectively managing and negotiating expectations.
+- Achieved "Employee of the Quarter" for delivering mobile of allowing users digital access through the app.
+- Led and implemented marketing website for a new building roll out, generating $500K in converted leads.
+- Improved upgrade efforts of mobile app by moving to Expo prebuilds, reducing upgrade migrations from hours of manual diff checking to an automated 10 seconds CLI command.
+- Improved React/code base by refactoring home-made solutions to industry libraries (react-query, react-table, and shadcn/ui).
+- Improved React build time by 80% by switching from CRA to Vite and using Bun for Github Actions, reducing an average of 5 mins down to 1 in our CI/CD.
+- Mentored new engineers through to their first PRs and provided detailed comments on best practices.
+- Managed internal engineer scaling issues by automating several manual processes and providing documentation.
+- Built a live retro feedback tool for other teams and initiated a company-wide hackathon.
 
 ### Atelier - Full-stack Developer (Aug 2021 - Jan 2022)
 - Enhanced the front-end by developing reusable components using SASS and Apollo Client, resulting in improved code maintainability and enhanced user experience.
@@ -42,11 +42,18 @@ date: 2024-11-07
 - Proficiently handled additional technologies such as AWS Cloud architecture, networking/VPN (IPsec), Linux (SSH/busybox tools), accessibility compliance (WCAG), and resource contention management (CPU/Memory/Threads).
 
 ## Other experience
+### Fullsuite - Senior Software Engineer | Sep 2023 - Current
+- Implemented POC with encryption using libsodium CHACHA20-POLY1305 and exposed through Expo Modules.
+- Building Auth, Mobile (Expo), Web app (react), back-end (HonoJS, Turso) for a new startup.
 ### Pitbull BSC - Front-end Developer (Mar 2021 - Jan 2022)
 - Implemented a Telegram price bot using Node.js, AWS Gateway, AWS Lambda, and Serverless (SLS).
 - Developed PitStop, a Next.js application utilizing ethers.js and web3modal for future application efforts.
 - Built PitChart, a GraphQL-powered data visualization tool displaying OLHC data over time using react-financial-chart.
+## Open source contributions and Blog
+- Honojs (Lightweight Express) - docs: update typo and add warning to #url() to use absolute URL (#203)
+- Outstatic (Git-based CMS) - fix: author name check (#169)
 ## Education and Certifications
+
 ### University of New South Wales (UNSW) - Bachelor of Engineering (Honours) / Commerce (2014 - 2020)
 - Major: Mechatronics and Information Systems (Credit average).
 - Honours thesis (Distinction): Integration of communication platforms across different operating systems.
