@@ -15,6 +15,7 @@
     "vue": "^3.5.12"
   },
   "devDependencies": {
+    "@types/bun": "^1.2.19",
     "@vitejs/plugin-vue": "^5.1.4",
     "vite": "^5.4.10",
     "vitepress": "^1.5.0",

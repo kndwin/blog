@@ -11,14 +11,10 @@
             "id": "bda02ef20591bbce",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "2025/08-03.md",
-                "mode": "source",
-                "source": false
-              },
+              "type": "empty",
+              "state": {},
               "icon": "lucide-file",
-              "title": "08-03"
+              "title": "New tab"
             }
           }
         ]
@@ -164,10 +160,41 @@
   },
   "active": "bda02ef20591bbce",
   "lastOpenFiles": [
-    "2025/08-02.md",
-    "2025/08-03.md",
-    "2025/Untitled.md",
-    "resume.md",
-    "index.md"
+    "node_modules/undici-types/websocket.d.ts",
+    "node_modules/undici-types/webidl.d.ts",
+    "node_modules/undici-types/utility.d.ts",
+    "node_modules/undici-types/util.d.ts",
+    "node_modules/undici-types/retry-handler.d.ts",
+    "node_modules/undici-types/retry-agent.d.ts",
+    "node_modules/undici-types/readable.d.ts",
+    "node_modules/undici-types/proxy-agent.d.ts",
+    "node_modules/undici-types/pool.d.ts",
+    "node_modules/undici-types/patch.d.ts",
+    "node_modules/undici-types/pool-stats.d.ts",
+    "node_modules/undici-types/README.md",
+    "node_modules/@types/node/README.md",
+    "node_modules/@types/react/README.md",
+    "node_modules/bun-types/docs/guides/test/watch-mode.md",
+    "node_modules/bun-types/docs/project/internals/build-process-for-ci.md",
+    "node_modules/bun-types/docs/guides/test/timeout.md",
+    "node_modules/bun-types/docs/guides/test/update-snapshots.md",
+    "node_modules/bun-types/docs/guides/test/todo-tests.md",
+    "node_modules/bun-types/docs/guides/test/spy-on.md",
+    "node_modules/bun-types/docs/guides/test/testing-library.md",
+    "node_modules/bun-types/docs/guides/test/svelte-test.md",
+    "node_modules/bun-types/docs/guides/test/snapshot.md",
+    "node_modules/bun-types/docs/guides/test/skip-tests.md",
+    "node_modules/bun-types/docs/guides/test/run-tests.md",
+    "node_modules/bun-types/docs/guides/test/rerun-each.md",
+    "node_modules/bun-types/docs/guides/test/mock-clock.md",
+    "node_modules/bun-types/docs/guides/test/happy-dom.md",
+    "node_modules/bun-types/docs/guides/test/mock-functions.md",
+    "node_modules/bun-types/docs/guides/test/migrate-from-jest.md",
+    "node_modules/bun-types/docs/guides/http/tls.md",
+    "node_modules/bun-types/docs/guides/test/coverage.md",
+    "node_modules/bun-types/docs/guides/test/coverage-threshold.md",
+    "node_modules/bun-types/docs/guides/test/bail.md",
+    "node_modules/bun-types/docs/guides/http/stream-node-streams-in-bun.md",
+    "node_modules/bun-types/docs/guides/http/file-uploads.md"
   ]
 }
