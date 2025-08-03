@@ -11,7 +11,7 @@ export default defineConfig({
     outline: 2,
     // https://vitepress.dev/reference/default-theme-config
     nav: [
-      { text: "Blog", link: "/2025/08-02" },
+      { text: "Blog", link: "/2025/08-03" },
       { text: "Resume", link: "/resume.html" },
     ],
 
