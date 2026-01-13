@@ -14,12 +14,17 @@ git log --author="$(git config user.name)" --since="1 year ago" --name-status --
 | :------------------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **Frontend**               | React (incl. React 19), TypeScript, Next.js, Vite, Tailwind CSS, shadcn/ui, Apollo Client, MDX, Web Extensions (WXT)                                                                     |
 | **Backend**                | Node.js, Python, TypeScript, Postgres (OLTP), ClickHouse (OLAP), Redis, GraphQL, Prisma, Drizzle ORM, BullMQ                                                                             |
-| **Cloud & Infrastructure** | **AWS:** ECS, ECR, RDS, ElastiCache, SQS, CloudFront, Route 53, S3, WAF, PrivateLink, IAM<br/>**IaC:** AWS CDK, Docker<br/>**Orchestration:** Kubernetes (EKS), Karpenter                |
+| **Cloud & Infrastructure** | **AWS:** ECS, ECR, RDS, ElastiCache, SQS, CloudFront, Route 53, S3, WAF, PrivateLink, IAM<br/>**IaC:** AWS CDK, Docker, Serverless<br/>**Orchestration:** Kubernetes (EKS), Karpenter                |
 | **AI & Data**              | **LLM Services:** OpenAI API, AWS Bedrock<br/>**Techniques & Libraries:** Clustering (HBDSCAN, K-Means), RAG, Dimension reduction (UMAP, PCA), Embedding (Tuning, Sentence-Transformers) |
 | **Observability & DevOps** | OpenTelemetry, Grafana, CloudWatch, GitHub Actions, Nango                                                                                                                                |
-| **Developer Tools**        | Nix, Vim, Tmux, Colima                                                                                                                                                                   |
+| **Developer Tools**        | Nix, Vim, Tmux, Colima, Claude Code, Opencode                                                                                                                                                                   |
+
 ## Work experience
-### Sauce - Senior Software Engineer (Aug 2024 - Current)
+
+### Sucasa - Senior Product Engineer (Jan 2026 - Current)
+- Own credit decisioning by harnessing AI to make financial decision.
+
+### Sauce - Senior Software Engineer (Aug 2024 - Dec 2025)
 
 #### **Infrastructure & Cloud Engineering (AWS CDK)**
 

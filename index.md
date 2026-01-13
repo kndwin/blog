@@ -4,9 +4,9 @@ titleTemplate: ':title'
 layout: home
 ---
 
-Currently working on AI-powered research agents at Sauce.
+Currently working on automating credit decisioning at Sucasa.
 
-Previously, I was a Senior Frontend Engineer at Mirvac, where I led mobile app development. Before that, I worked at Appian in Sydney.
+Previously, I was a Senior Engineer at Sauce working in SWE/AI/ML. Before that, I was a Senior Frontend Engineer at Mirvac, I worked at Appian in Sydney.
 
 **Education**
 * Bachelor of Engineering (Honours) / Commerce from UNSW
