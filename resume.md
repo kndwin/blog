@@ -1,10 +1,10 @@
 ---
 title: Resume
-date: 2024-11-07
+date: 2026-02-22
 exclude: true
 ---
 
-I ran the below script against the repo's I've been working on and asked Google Gemini 2.5 Pro to summarised what I've done.
+I ran the below script against the repo's I've been working on and asked Google Gemini 2.5/3.0 Pro to summarised what I've done.
 ```bash
 git log --author="$(git config user.name)" --since="1 year ago" --name-status --pretty=format:"%h - %an, %ar : %s" > my_commits_last_year.txt
 ```
@@ -21,8 +21,12 @@ git log --author="$(git config user.name)" --since="1 year ago" --name-status --
 
 ## Work experience
 
-### Sucasa - Senior Product Engineer (Jan 2026 - Current)
-- Own credit decisioning by harnessing AI to make financial decision.
+### Skip - Senior Product Engineer (Jan 2026 - Current)
+- **Architected and implemented an Automated Credit Decisioning Engine** in TypeScript, utilizing a highly extensible rule registry and Zod schema validation to evaluate applications for soft approvals and declines based on serviceability, income, housing, and liabilities.
+- **Engineered an AI-driven OCR extraction pipeline** leveraging multiple LLM providers (Anthropic, OpenAI, Gemini) to automate complex financial assessments, such as payslip employer matching, identity verification, and credit file liability reconciliation.
+- **Developed a dedicated LLM evaluation framework (evals)** to systematically benchmark, test, and score the accuracy of AI agents extracting data from passports and payslips, ensuring high-reliability data extraction for production.
+- **Built an internal React/TypeScript dashboard** to visualize automated credit decision runs, featuring custom graphs for rule state evaluation, outcome breakdowns, and distribution analysis, empowering operations with transparent AI decisioning insights.
+- **Enhanced backend observability and deployment infrastructure** by integrating OpenTelemetry distributed tracing across workflows, and deploying a globally secure, WAF-protected AWS CloudFront distribution using the Serverless Framework.
 
 ### Sauce - Senior Software Engineer (Aug 2024 - Dec 2025)
 
@@ -86,7 +90,12 @@ git log --author="$(git config user.name)" --since="1 year ago" --name-status --
 - **Developed a feature-flagged, table-based view for browsing highlights**, offering users an alternative to the existing list view with enhanced sorting, filtering, and bulk-action capabilities.
 
 - **Upgraded the Chrome extension to Manifest V3**, enhancing its functionality with new features and ensuring compliance with the latest browser standards.
-### Mirvac - Senior Front-end Engineer (Jan 2022 - Current)
+
+### Fullsuite - Senior Software Engineer (Contract) (Sep 2023 - Nov 2024)
+- Implemented POC with encryption using libsodium CHACHA20-POLY1305 and exposed through Expo Modules.
+- Building Auth, Mobile (Expo), Web app (react), back-end (HonoJS, Turso) for a new startup.
+
+### Mirvac - Senior Front-end Engineer (Jan 2022 - Aug 2024)
 - Achieved "Employee of the Quarter" for delivering mobile of allowing users digital access through the app.
 - Led and implemented marketing website for a new building roll out, generating $500K in converted leads.
 - Improved upgrade efforts of mobile app by moving to Expo prebuilds, reducing upgrade migrations from hours of manual diff checking to an automated 10 seconds CLI command.
@@ -95,6 +104,11 @@ git log --author="$(git config user.name)" --since="1 year ago" --name-status --
 - Mentored new engineers through to their first PRs and provided detailed comments on best practices.
 - Managed internal engineer scaling issues by automating several manual processes and providing documentation.
 - Built a live retro feedback tool for other teams and initiated a company-wide hackathon.
+
+### Pitbull BSC - Front-end Developer (Contract) (Mar 2021 - Jan 2022)
+- Implemented a Telegram price bot using Node.js, AWS Gateway, AWS Lambda, and Serverless (SLS).
+- Developed PitStop, a Next.js application utilizing ethers.js and web3modal for future application efforts.
+- Built PitChart, a GraphQL-powered data visualization tool displaying OLHC data over time using react-financial-chart.
 
 ### Atelier - Full-stack Developer (Aug 2021 - Jan 2022)
 - Enhanced the front-end by developing reusable components using SASS and Apollo Client, resulting in improved code maintainability and enhanced user experience.
@@ -107,20 +121,10 @@ git log --author="$(git config user.name)" --since="1 year ago" --name-status --
 - Demonstrated expertise in supporting various components of the Appian stack, including application servers (Tomcat, JBoss), web servers (IIS, Apache), RDBMS (MySQL/Mariadb), Apache Kafka, Elasticsearch, and integrations with Appian.
 - Proficiently handled additional technologies such as AWS Cloud architecture, networking/VPN (IPsec), Linux (SSH/busybox tools), accessibility compliance (WCAG), and resource contention management (CPU/Memory/Threads).
 
-## Other experience
-### Fullsuite - Senior Software Engineer | Sep 2023 - Current
-- Implemented POC with encryption using libsodium CHACHA20-POLY1305 and exposed through Expo Modules.
-- Building Auth, Mobile (Expo), Web app (react), back-end (HonoJS, Turso) for a new startup.
-### Pitbull BSC - Front-end Developer (Mar 2021 - Jan 2022)
-- Implemented a Telegram price bot using Node.js, AWS Gateway, AWS Lambda, and Serverless (SLS).
-- Developed PitStop, a Next.js application utilizing ethers.js and web3modal for future application efforts.
-- Built PitChart, a GraphQL-powered data visualization tool displaying OLHC data over time using react-financial-chart.
-## Open source contributions and Blog
-- Honojs (Lightweight Express) - docs: update typo and add warning to #url() to use absolute URL ([#203](https://github.com/honojs/website/pull/203))
-- Outstatic (Git-based CMS) - fix: author name check ([#169](https://github.com/avitorio/outstatic/pull/169))
-- borabaloglu/cmdk-base - [core] Update useId dependency ([#3](https://github.com/borabaloglu/cmdk-base/pull/3))
-- NangoHQ/nango - docs: update rate limit code snippet ([#3066](https://github.com/NangoHQ/nango/pull/3966))
-- NangoHQ/nango - fix: update error message for provider key missing ([#2622](https://github.com/NangoHQ/nango/pull/2622))
+## Speaking & Presentations
+- **AWS Startup Dev Day Sydney (Sep 2025):** Co-presented *"Real-time analytics with Sauce AI and ClickHouse"* alongside ClickHouse Solutions Architect Johnny Mirza. [[Slides]](https://docs.google.com/presentation/d/1G-uBXJaQa7yHk3tR47r79eQzaFjiIALdUDl8JBmm_H4/edit?usp=sharing)
+<img src="./assets/aws-talk.jpeg" alt="AWS Startup Dev Day Sydney 2025 Banner" width="300" style="border-radius: 8px; margin-bottom: 12px;"/>
+
 ## Education and Certifications
 
 ### University of New South Wales (UNSW) - Bachelor of Engineering (Honours) / Commerce (2014 - 2020)
@@ -130,12 +134,13 @@ git log --author="$(git config user.name)" --since="1 year ago" --name-status --
 ### Amazon Web Services
 - AWS Developer Associate Certification (Score: 905/1000)
 
-### FreeCodeCamp (2020-2021)
-- Completed 4 certificates, each representing 300 hours of coursework:
-  - Responsive Web Design
-  - JavaScript Algorithms and Data Structures
-  - Front End Libraries
-  - APIs & Microservices
+
+## Open source contributions and Blog
+- Honojs (Lightweight Express) - docs: update typo and add warning to #url() to use absolute URL ([#203](https://github.com/honojs/website/pull/203))
+- Outstatic (Git-based CMS) - fix: author name check ([#169](https://github.com/avitorio/outstatic/pull/169))
+- borabaloglu/cmdk-base - [core] Update useId dependency ([#3](https://github.com/borabaloglu/cmdk-base/pull/3))
+- NangoHQ/nango - docs: update rate limit code snippet ([#3066](https://github.com/NangoHQ/nango/pull/3966))
+- NangoHQ/nango - fix: update error message for provider key missing ([#2622](https://github.com/NangoHQ/nango/pull/2622))
 
 ## Projects
 ### Hayom

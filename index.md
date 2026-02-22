@@ -4,7 +4,7 @@ titleTemplate: ':title'
 layout: home
 ---
 
-Currently working on automating credit decisioning at Sucasa.
+Currently working on automating credit decisioning at Skip.
 
 Previously, I was a Senior Engineer at Sauce working in SWE/AI/ML. Before that, I was a Senior Frontend Engineer at Mirvac, I worked at Appian in Sydney.
 
