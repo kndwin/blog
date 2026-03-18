@@ -1,0 +1,24 @@
+resume.md
+  6bd2cdebcf261152 16,57-67
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.1.12",
+  "base_commit_sha": "c4e685e6c03fc8c48c4d0f8ed40e94c7243ca99c",
+  "prompts": {
+    "6bd2cdebcf261152": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "8acaf4d4-b284-4658-be52-d0c3f1889ed7",
+        "model": "claude-sonnet-4-6"
+      },
+      "human_author": "Kevin <kevin@sucasa.com.au>",
+      "messages": [],
+      "total_additions": 12,
+      "total_deletions": 1,
+      "accepted_lines": 12,
+      "overriden_lines": 0,
+      "messages_url": "https://usegitai.com/cas/5f039b343e29ba472167fe8134b021b197b39beaead51823a4a1f9c74b1e4038"
+    }
+  }
+}
