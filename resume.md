@@ -15,18 +15,51 @@ git log --author="$(git config user.name)" --since="1 year ago" --name-status --
 | **Frontend**               | React (incl. React 19), TypeScript, Next.js, Vite, Tailwind CSS, shadcn/ui, Apollo Client, MDX, Web Extensions (WXT)                                                                     |
 | **Backend**                | Node.js, Python, TypeScript, Postgres (OLTP), ClickHouse (OLAP), Redis, GraphQL, Prisma, Drizzle ORM, BullMQ                                                                             |
 | **Cloud & Infrastructure** | **AWS:** ECS, ECR, RDS, ElastiCache, SQS, CloudFront, Route 53, S3, WAF, PrivateLink, IAM<br/>**IaC:** AWS CDK, Docker, Serverless<br/>**Orchestration:** Kubernetes (EKS), Karpenter                |
-| **AI & Data**              | **LLM Services:** OpenAI API, AWS Bedrock<br/>**Techniques & Libraries:** Clustering (HBDSCAN, K-Means), RAG, Dimension reduction (UMAP, PCA), Embedding (Tuning, Sentence-Transformers) |
+| **AI & Data**              | **LLM Services:** Anthropic Claude, Google Gemini, Extend AI, OpenAI API, AWS Bedrock<br/>**Techniques & Libraries:** OCR extraction, LLM evals, Clustering (HBDSCAN, K-Means), RAG, Dimension reduction (UMAP, PCA), Embedding (Tuning, Sentence-Transformers) |
 | **Observability & DevOps** | OpenTelemetry, Grafana, CloudWatch, GitHub Actions, Nango                                                                                                                                |
 | **Developer Tools**        | Nix, Vim, Tmux, Colima, Claude Code, Opencode                                                                                                                                                                   |
 
 ## Work experience
 
 ### Skip - Senior Product Engineer (Jan 2026 - Current)
-- **Architected and implemented an Automated Credit Decisioning Engine** in TypeScript, utilizing a highly extensible rule registry and Zod schema validation to evaluate applications for soft approvals and declines based on serviceability, income, housing, and liabilities.
-- **Engineered an AI-driven OCR extraction pipeline** leveraging multiple LLM providers (Anthropic, OpenAI, Gemini) to automate complex financial assessments, such as payslip employer matching, identity verification, and credit file liability reconciliation.
-- **Developed a dedicated LLM evaluation framework (evals)** to systematically benchmark, test, and score the accuracy of AI agents extracting data from passports and payslips, ensuring high-reliability data extraction for production.
-- **Built an internal React/TypeScript dashboard** to visualize automated credit decision runs, featuring custom graphs for rule state evaluation, outcome breakdowns, and distribution analysis, empowering operations with transparent AI decisioning insights.
-- **Enhanced backend observability and deployment infrastructure** by integrating OpenTelemetry distributed tracing across workflows, and deploying a globally secure, WAF-protected AWS CloudFront distribution using the Serverless Framework.
+
+#### **Credit Decisioning Engine**
+
+- **Architected and implemented an Automated Credit Decisioning Engine** in TypeScript, comprising a highly extensible rule registry with Zod schema validation to evaluate loan applications across 27+ rules covering serviceability, income, housing, liabilities, identity, and credit file checks — outputting typed `PASS / FAIL / SKIP` outcomes for each.
+- **Implemented a comprehensive suite of credit decision rules** spanning identity verification (`passportCheck`, `driverLicenceCheck`, `medicareCardCheck`, `birthCertificateCheck`, `visaGrantCheck`, `acceptableIdType`, `acceptableIDCombination`), credit file analysis (`allLiabilitiesOnCCR`, `creditEnquiriesLast12Months`, `ageOfFile`, `rhi`), and liability checks (`noInvestmentProperty`, `noOffshoreLiabilities`, `noCreditFileHardship`).
+- **Implemented a human override mechanism** allowing credit assessors to manually override any rule's `PASS/FAIL/SKIP` state, providing a controlled escape hatch for edge cases without bypassing the audit trail.
+- **Designed a document reconciliation system** that cross-references OCR-extracted liability data against Comprehensive Credit Reporting (CCR) entries, flagging discrepancies for assessor review.
+- **Integrated the Australian Business Register (ABR) API** to validate ABNs during identity and employment verification checks.
+
+#### **AI-Driven OCR Extraction Pipeline**
+
+- **Engineered a multi-provider AI OCR extraction pipeline** leveraging Anthropic Claude, Google Gemini, and Extend AI to extract structured data from financial documents, with Zod-validated output schemas and `SCHEMA_MISMATCH` error logging with full Zod error details for debugging.
+- **Built OCR extraction modules for 10+ document types**: payslips (employer, salary, pay period), identity documents (passport, driver licence with both-side support, Medicare card, birth certificate, visa grant), and liability statements (BNPL, credit card, car loan, personal loan, home loan/mortgage, HECS/HELP).
+- **Developed a dedicated LLM evaluation framework** (`evals`) to systematically benchmark and score AI agent accuracy on document extraction tasks, with a CLI for running backtests with configurable `currentIso` date context and Auth0-reuse for test sessions.
+- **Added an OCR extraction trigger service** with a dev-tool endpoint enabling on-demand extraction runs during development, integrated with LocalStack for local AWS emulation.
+
+#### **LEAP Assessment Dashboard**
+
+- **Built the LEAP (Loan Evaluation & Assessment Portal)** internal React/TypeScript dashboard from the ground up, providing credit assessors with a full view of automated decision runs, rule-by-rule outcome breakdowns, and supporting document panels.
+- **Migrated the frontend to TanStack Router**, eliminating manual navigation typing and enabling type-safe routing across all feature areas.
+- **Enforced a feature-based folder architecture** (replacing layer-based structure) with oxlint import rules, ensuring clear domain boundaries between `identity/`, `liabilities/`, `credit-decision/` and other feature modules.
+- **Built typed rule output UI components** for every implemented rule, consuming the `ts-rest` contract directly to ensure frontend/backend type safety without manual API typing.
+- **Implemented a Vite dev server proxy for LocalStack**, enabling the frontend to communicate with locally-running AWS services during development without environment config changes.
+- **Moved all Tailwind colours to shadcn design tokens** for consistent theming across the dashboard, and added a `vercel.json` for production deployment.
+
+#### **Infrastructure & DevOps**
+
+- **Deployed a globally distributed, WAF-protected AWS CloudFront distribution** (Global Media Library) with signed URL generation, IP whitelisting (expanding /29 to /32 CIDR ranges), and PEM secret normalisation for Doppler-sourced certificates.
+- **Integrated OpenTelemetry distributed tracing** across backend services, providing deep observability into OCR extraction workflows, rule evaluation pipelines, and external API calls.
+- **Built and maintained CI/CD pipelines in GitHub Actions**, including skippable versioning workflows, action linting, and coordinated version contracts between `ts-rest` packages across services.
+- **Improved the offline dev CLI** with warm deploy support, seed file renaming, and AWS region enforcement, reducing developer setup friction for local end-to-end testing.
+
+#### **Developer Tooling & Code Quality**
+
+- **Adopted `tsgo` for pre-commit type checking**, providing near-instant TypeScript validation on every commit without a full `tsc` build.
+- **Implemented a custom ESLint rule** enforcing single-object parameter style for `traceClassMethod` decorators, ensuring consistent observability instrumentation across the codebase.
+- **Migrated all rule inputs/outputs to Zod schemas**, enabling runtime validation, automatic TypeScript inference, and self-documenting contracts between the rules engine and its consumers.
+- **Introduced oxlint** for fast JavaScript/TypeScript linting with feature-based import enforcement across both the backend service and the frontend dashboard.
 
 ### Sauce - Senior Software Engineer (Aug 2024 - Dec 2025)
 
