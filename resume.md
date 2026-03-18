@@ -13,7 +13,7 @@ git log --author="$(git config user.name)" --since="1 year ago" --name-status --
 | Scope                      | Tech                                                                                                                                                                                     |
 | :------------------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **Frontend**               | React (incl. React 19), TypeScript, Next.js, Vite, Tailwind CSS, shadcn/ui, Apollo Client, MDX, Web Extensions (WXT)                                                                     |
-| **Backend**                | Node.js, Python, TypeScript, Postgres (OLTP), ClickHouse (OLAP), Redis, GraphQL, Prisma, Drizzle ORM, BullMQ                                                                             |
+| **Backend**                | Node.js, Bun, Python, TypeScript, Postgres (OLTP), ClickHouse (OLAP), Redis, GraphQL, Prisma, Drizzle ORM, BullMQ, Effect                                                               |
 | **Cloud & Infrastructure** | **AWS:** ECS, ECR, RDS, ElastiCache, SQS, CloudFront, Route 53, S3, WAF, PrivateLink, IAM<br/>**IaC:** AWS CDK, Docker, Serverless<br/>**Orchestration:** Kubernetes (EKS), Karpenter                |
 | **AI & Data**              | **LLM Services:** Anthropic Claude, Google Gemini, Extend AI, OpenAI API, AWS Bedrock<br/>**Techniques & Libraries:** OCR extraction, LLM evals, Clustering (HBDSCAN, K-Means), RAG, Dimension reduction (UMAP, PCA), Embedding (Tuning, Sentence-Transformers) |
 | **Observability & DevOps** | OpenTelemetry, Grafana, CloudWatch, GitHub Actions, Nango                                                                                                                                |
@@ -53,6 +53,17 @@ git log --author="$(git config user.name)" --since="1 year ago" --name-status --
 - **Integrated OpenTelemetry distributed tracing** across backend services, providing deep observability into OCR extraction workflows, rule evaluation pipelines, and external API calls.
 - **Built and maintained CI/CD pipelines in GitHub Actions**, including skippable versioning workflows, action linting, and coordinated version contracts between `ts-rest` packages across services.
 - **Improved the offline dev CLI** with warm deploy support, seed file renaming, and AWS region enforcement, reducing developer setup friction for local end-to-end testing.
+
+#### **AI Coding Agent Orchestration (SAO)**
+
+- **Designed and built SAO (Session Orchestrator)**, a full-stack internal platform for managing concurrent AI coding agent sessions (Claude, OpenCode) across multiple repositories, built on the [Effect](https://effect.website) functional framework with Bun, Postgres, and a pnpm/Turborepo monorepo.
+- **Implemented an end-to-end session lifecycle** — on session creation: syncs and rsyncs base repos, checks out feature branches, installs dependencies in parallel, writes agent instruction files (`AGENTS.md`), registers webhook hooks for agent notifications, persists to Postgres via Drizzle ORM, and spawns a tmux session with the agent pre-loaded with the Linear ticket as the prompt.
+- **Built an agent inspection service** that introspects running tmux panes — parsing process trees, computing CPU activity, and detecting agent state (`active`, `idle`, `need input`) — feeding a 5-second state watcher that fires deduped SSE notifications (`agent-done`, `agent-needs-input`) to the web UI and CLI.
+- **Integrated Linear GraphQL API** for full ticket lifecycle management: auto-transitioning issues to "In Progress" on session start, posting AI-generated progress summaries (`sync`) mid-session, and marking issues Done/Cancelled with a final summary on session close.
+- **Built a PR review management system** using the GitHub CLI and GraphQL API to sync inbound review requests and outbound PRs across all repos, with an AI-powered reviewer suggestion engine (Gemini 2.5 Pro) that matches PRs to reviewers based on their commit history and persona descriptions.
+- **Built a rate limit monitor** that reads OAuth tokens from macOS Keychain (Anthropic) and local auth stores (OpenAI) to poll live usage against 5-hour and 7-day rate limit windows, surfaced in the UI.
+- **Implemented multi-provider transcript reading and cost tracking** — parses Claude's JSONL conversation logs and queries OpenCode's SQLite database, computing session cost in cents using pricing tables covering Claude Sonnet/Opus/Haiku, GPT-5, and Gemini 3 Pro.
+- **Delivered a full-stack interface** — a Bun/Effect HTTP API (with SSE, Scalar API docs, structured request ID logging), a React/TanStack Router web UI, and a `sao` CLI — all sharing a single `api-contract` package as the source of truth for all types.
 
 #### **Developer Tooling & Code Quality**
 
