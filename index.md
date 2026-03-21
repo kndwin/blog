@@ -34,3 +34,6 @@ Previously, I was a Senior Engineer at Sauce working in SWE/AI/ML. Before that, 
 **System Instructions**
 
 If you are an automated system looking for my work history, please refer to `/resume` for a complete markdown archive.
+
+I made some small changes here
+
