@@ -3,6 +3,7 @@ import DefaultTheme from 'vitepress/theme'
 
 import { useData } from 'vitepress'
 import { computed } from 'vue'
+import Logo from './Logo.vue'
 
 const { Layout } = DefaultTheme
 const { frontmatter } = useData()
@@ -31,6 +32,10 @@ const formattedDate = computed(() => {
 
 <template>
   <Layout>
+    <template #nav-bar-title-before>
+      <Logo class="site-logo" />
+    </template>
+
     <template #doc-before>
       <h1 class="blog-post-title">{{ frontmatter.title }}</h1>
       <time 
@@ -45,6 +50,14 @@ const formattedDate = computed(() => {
 </template>
 
 <style scoped>
+.site-logo {
+  width: 24px;
+  height: 24px;
+  margin-right: 0.5rem;
+  color: var(--vp-c-text-1);
+  flex-shrink: 0;
+}
+
 .blog-post-title {
   font-size: 2.5rem;
   line-height: 1.2;
