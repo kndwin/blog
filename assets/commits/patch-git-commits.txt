@@ -1,0 +1,150 @@
+git commits for resume research
+
+===== patch-postgis =====
+
+b43b4e1 - Kevin, 4 days ago : feat: serve PMTiles tiles for Mapbox GL
+A	infra/cloudflare/tiles-worker/README.md
+A	infra/cloudflare/tiles-worker/package.json
+A	infra/cloudflare/tiles-worker/pnpm-lock.yaml
+M	infra/cloudflare/tiles-worker/src/index.js
+
+032f349 - Kevin, 4 days ago : fix: load cadastre PMTiles through protocol
+M	frontend/bun.lock
+M	frontend/package.json
+M	frontend/src/main.js
+
+8e158c2 - Kevin, 4 days ago : fix: return correct PMTiles range responses
+M	infra/cloudflare/tiles-worker/src/index.js
+
+7550ec0 - Kevin, 4 days ago : feat: serve PMTiles from Cloudflare R2
+M	frontend/README.md
+A	infra/cloudflare/tiles-worker/src/index.js
+A	infra/cloudflare/tiles-worker/wrangler.jsonc
+
+e137136 - Kevin, 4 days ago : chore: configure R2 tile CORS policy
+M	frontend/README.md
+A	infra/cloudflare/r2-cors.json
+M	scripts/build-pmtiles.sh
+
+904d4ec - Kevin, 4 days ago : feat: add static PMTiles cadastre pipeline
+M	.gitignore
+M	frontend/.env.example
+M	frontend/README.md
+M	frontend/src/main.js
+A	scripts/build-pmtiles.sh
+
+35ec16d - Kevin, 4 days ago : perf: cache immutable cadastre tiles
+M	src/module/cadastre/cadastre.http.live.ts
+
+da005e9 - Kevin, 4 days ago : feat: sync cadastre snapshots from FileGDB
+M	.env.example
+A	.prettierignore
+M	Dockerfile
+M	README.md
+A	drizzle/20260730120000_drop_cadastre_import_checkpoints/migration.sql
+A	frontend/.env.example
+A	frontend/.gitignore
+A	frontend/README.md
+A	frontend/bun.lock
+A	frontend/index.html
+A	frontend/package.json
+A	frontend/src/main.js
+A	frontend/src/style.css
+A	frontend/vite.config.js
+M	package.json
+D	src/entrypoint/import-sydney.ts
+D	src/entrypoint/import.ts
+A	src/entrypoint/sync.ts
+D	src/module/cadastre/cadastre.geometry.test.ts
+M	src/module/cadastre/cadastre.geometry.ts
+M	src/module/cadastre/cadastre.http.test.ts
+D	src/module/cadastre/cadastre.import.test.ts
+M	src/module/cadastre/cadastre.model.ts
+M	src/module/cadastre/cadastre.schema.ts
+M	src/module/cadastre/cadastre.service.ts
+A	src/module/cadastre/sync/cadastre.sync.cli.ts
+A	src/module/cadastre/sync/cadastre.sync.service.ts
+A	src/module/cadastre/sync/cadastre.sync.test.ts
+M	src/platform/db/client.ts
+M	src/platform/db/schema.ts
+
+9457496 - Kevin, 13 days ago : feat: add ArcGIS cadastre query adapter
+M	README.md
+M	src/module/cadastre/cadastre.http.define.ts
+M	src/module/cadastre/cadastre.http.live.ts
+M	src/module/cadastre/cadastre.http.schema.ts
+M	src/module/cadastre/cadastre.http.test.ts
+
+d19818d - Kevin, 13 days ago : feat: expose lot geometry and enable CORS
+M	README.md
+M	src/main.ts
+M	src/module/cadastre/cadastre.geometry.ts
+M	src/module/cadastre/cadastre.http.live.ts
+M	src/module/cadastre/cadastre.http.schema.ts
+A	src/module/cadastre/cadastre.http.test.ts
+M	src/module/cadastre/cadastre.service.ts
+
+91dcf7f - Kevin, 2 weeks ago : Add ID-first Greater Sydney importer
+M	README.md
+A	drizzle/20260723120000_sydney_import_checkpoint/migration.sql
+M	package.json
+A	src/entrypoint/import-sydney.ts
+A	src/module/cadastre/cadastre.import.test.ts
+M	src/module/cadastre/cadastre.model.ts
+M	src/module/cadastre/cadastre.service.ts
+M	src/platform/db/schema.ts
+
+a7c0212 - Kevin, 2 weeks ago : feat: serve cadastre vector tiles
+M	.railway/railway.ts
+M	README.md
+M	src/module/cadastre/cadastre.http.define.ts
+M	src/module/cadastre/cadastre.http.live.ts
+M	src/module/cadastre/cadastre.http.schema.ts
+M	src/module/cadastre/cadastre.service.ts
+
+e586377 - Kevin, 2 weeks ago : feat: test cadestre
+M	.railway/railway.ts
+M	README.md
+M	package.json
+A	src/entrypoint/import.ts
+A	src/module/cadastre/cadastre.geometry.test.ts
+A	src/module/cadastre/cadastre.geometry.ts
+M	src/module/cadastre/cadastre.schema.ts
+M	src/module/cadastre/cadastre.service.ts
+
+7789765 - Kevin, 2 weeks ago : fix: update pre deploy script
+M	.railway/railway.ts
+M	Dockerfile
+
+72c967c - Kevin, 2 weeks ago : fix: update dockerfile
+M	Dockerfile
+M	bun.lock
+
+36490f8 - Kevin, 2 weeks ago : feat: add init folder
+A	.env.example
+A	.gitignore
+A	.oxlintrc.json
+A	.railway/railway.ts
+A	Dockerfile
+A	README.md
+A	bun.lock
+A	docker-compose.yml
+A	drizzle.config.ts
+A	drizzle/20260722095430_majestic_slyde/migration.sql
+A	drizzle/20260722095430_majestic_slyde/snapshot.json
+A	package.json
+A	src/main.ts
+A	src/module/cadastre/cadastre.http.define.ts
+A	src/module/cadastre/cadastre.http.live.ts
+A	src/module/cadastre/cadastre.http.schema.ts
+A	src/module/cadastre/cadastre.model.schema.ts
+A	src/module/cadastre/cadastre.model.ts
+A	src/module/cadastre/cadastre.schema.ts
+A	src/module/cadastre/cadastre.service.ts
+A	src/platform/db/client.ts
+A	src/platform/db/schema.ts
+A	src/platform/http/api.define.ts
+A	src/platform/http/api.live.ts
+A	tsconfig.json
+
+f32ff39 - Kevin, 2 weeks ago : Initial commit

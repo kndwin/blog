@@ -1,0 +1,903 @@
+git commits for resume research
+
+===== agent-infra =====
+
+15f0ee0 - Kevin, 3 months ago : feat: add API key header parser
+M	apps/client-cli/src/main.ts
+M	apps/server-core/src/platform/auth/rpc-auth.ts
+M	packages/client-api/src/rpc.ts
+
+1ce8afb - Kevin, 3 months ago : feat: allow bastion SSH from anywhere when no CIDR configured
+M	infra/aws/agent-app.stack.ts
+M	infra/aws/bastion.construct.ts
+
+3b6c3fb - Kevin, 3 months ago : feat: add bastion host for session SSH access
+M	apps/client-ui/src/module/session/ui/session-remote-endpoints.ui.tsx
+M	apps/client-ui/src/routeTree.gen.ts
+M	apps/server-core/src/module/sessions/session-bootstrap.service.test.ts
+M	apps/server-core/src/module/sessions/session-bootstrap.service.ts
+M	apps/server-core/src/module/sessions/session-ec2.service.ts
+M	apps/server-core/src/module/sessions/sessions.schema.ts
+M	infra/aws.ts
+M	infra/aws/agent-app.stack.ts
+A	infra/aws/bastion.construct.ts
+
+66e3352 - Kevin, 3 months ago : fix: restore session ec2 reconcile and cleanup-orphans handlers
+M	apps/server-core/src/module/sessions/sessions.rpc.impl.ts
+
+3da4cf1 - Kevin, 3 months ago : fix: add idempotent migration creating ssh_keys table
+A	apps/server-core/drizzle/20260505013351_add_ssh_keys/migration.sql
+
+280988c - Kevin, 3 months ago : feat: add ssh key management and session ssh provisioning
+M	apps/client-ui/src/module/session/ui/session-create-dialog.ui.tsx
+M	apps/client-ui/src/module/session/ui/session-remote-endpoints.ui.story.tsx
+M	apps/client-ui/src/module/session/ui/session-remote-endpoints.ui.tsx
+A	apps/client-ui/src/module/ssh-key/ssh-key.atom.test.ts
+A	apps/client-ui/src/module/ssh-key/ssh-key.atom.ts
+A	apps/client-ui/src/module/ssh-key/ssh-key.route.tsx
+A	apps/client-ui/src/module/ssh-key/ui/ssh-key-panel.ui.story.tsx
+A	apps/client-ui/src/module/ssh-key/ui/ssh-key-panel.ui.tsx
+M	apps/client-ui/src/routeTree.gen.ts
+M	apps/client-ui/src/routes.ts
+M	apps/client-ui/src/shared/ui/module-layout.ui.tsx
+D	apps/server-core/drizzle/20260423145633_yielding_night_nurse/snapshot.json
+D	apps/server-core/drizzle/20260425145122_magical_jackpot/migration.sql
+D	apps/server-core/drizzle/20260425145122_magical_jackpot/snapshot.json
+D	apps/server-core/drizzle/20260425161417_good_cyclops/migration.sql
+D	apps/server-core/drizzle/20260427000100_add_api_keys/migration.sql
+R059	apps/server-core/drizzle/20260423145633_yielding_night_nurse/migration.sql	apps/server-core/drizzle/20260505001519_baseline/migration.sql
+R071	apps/server-core/drizzle/20260425161417_good_cyclops/snapshot.json	apps/server-core/drizzle/20260505001519_baseline/snapshot.json
+A	apps/server-core/scripts/render-user-data.ts
+M	apps/server-core/src/main.ts
+M	apps/server-core/src/module/sessions/remote-gateway.service.test.ts
+M	apps/server-core/src/module/sessions/session-bootstrap.service.test.ts
+M	apps/server-core/src/module/sessions/session-bootstrap.service.ts
+M	apps/server-core/src/module/sessions/session-ec2.service.test.ts
+M	apps/server-core/src/module/sessions/session-ec2.service.ts
+M	apps/server-core/src/module/sessions/sessions.repo.ts
+M	apps/server-core/src/module/sessions/sessions.rpc.contract.ts
+M	apps/server-core/src/module/sessions/sessions.rpc.impl.ts
+M	apps/server-core/src/module/sessions/sessions.schema.ts
+M	apps/server-core/src/module/sessions/sessions.service.test.ts
+M	apps/server-core/src/module/sessions/sessions.service.ts
+M	apps/server-core/src/module/sessions/sessions.table.ts
+A	apps/server-core/src/module/ssh-key/ssh-key.repo.ts
+A	apps/server-core/src/module/ssh-key/ssh-key.rpc.contract.ts
+A	apps/server-core/src/module/ssh-key/ssh-key.rpc.impl.ts
+A	apps/server-core/src/module/ssh-key/ssh-key.schema.ts
+A	apps/server-core/src/module/ssh-key/ssh-key.service.test.ts
+A	apps/server-core/src/module/ssh-key/ssh-key.service.ts
+A	apps/server-core/src/module/ssh-key/ssh-key.table.ts
+M	apps/server-core/src/platform/db.contract.ts
+M	apps/server-core/src/platform/db.impl.ts
+M	apps/server-core/src/platform/rpc.contract.ts
+M	infra/aws.ts
+M	infra/aws/agent-app.stack.ts
+
+5d9facd - Kevin, 3 months ago : fix: extend session gateway origin timeouts
+M	infra/aws/agent-app.stack.ts
+
+e6a27e2 - Kevin, 3 months ago : fix: isolate RPC auth errors
+M	apps/client-ui/src/routeTree.gen.ts
+M	apps/server-core/src/module/api-key/api-key.rpc.contract.ts
+M	apps/server-core/src/module/sessions/sessions.rpc.contract.ts
+M	apps/server-core/src/platform/auth/auth.contract.ts
+A	apps/server-core/src/platform/auth/rpc-auth.error.ts
+M	apps/server-core/src/platform/auth/rpc-auth.ts
+M	apps/server-core/src/platform/rpc.contract.ts
+
+778a85b - Kevin, 3 months ago : fix: enforce RPC session ownership
+M	apps/client-ui/src/module/api-key/api-key.route.tsx
+M	apps/server-core/src/main.ts
+M	apps/server-core/src/module/api-key/api-key.rpc.contract.ts
+M	apps/server-core/src/module/api-key/api-key.rpc.impl.ts
+M	apps/server-core/src/module/sessions/remote-gateway.proxy.ts
+M	apps/server-core/src/module/sessions/remote-gateway.service.test.ts
+M	apps/server-core/src/module/sessions/remote-gateway.service.ts
+M	apps/server-core/src/module/sessions/sessions.rpc.contract.ts
+M	apps/server-core/src/module/sessions/sessions.rpc.impl.ts
+M	apps/server-core/src/platform/auth/auth.contract.ts
+A	apps/server-core/src/platform/auth/rpc-auth.ts
+M	apps/server-core/src/platform/rpc.contract.ts
+
+853b2e4 - Kevin, 3 months ago : feat: configure session bootstrap provisioning
+M	.github/workflows/deploy.yaml
+M	apps/server-core/src/module/sessions/session-bootstrap.service.test.ts
+M	apps/server-core/src/module/sessions/session-bootstrap.service.ts
+M	apps/server-core/src/module/sessions/session-ec2.service.test.ts
+M	apps/server-core/src/module/sessions/session-ec2.service.ts
+M	infra/aws.ts
+M	infra/aws/agent-app.stack.ts
+A	tools/session-bootstrap-smoke.user-data.sh
+
+7514eab - Kevin, 3 months ago : feat: switch session bootstrap from yarn to pnpm
+M	apps/server-core/src/module/sessions/session-bootstrap.service.test.ts
+M	apps/server-core/src/module/sessions/session-bootstrap.service.ts
+
+85c5f7d - Kevin, 3 months ago : feat: add session bootstrap GitHub token secret to deploy
+M	.github/workflows/deploy.yaml
+
+88883f0 - Kevin, 3 months ago : fix: use per-command git auth instead of global config
+M	apps/server-core/src/module/sessions/session-bootstrap.service.test.ts
+M	apps/server-core/src/module/sessions/session-bootstrap.service.ts
+
+819acfc - Kevin, 3 months ago : feat: Add api-key module and remote session endpoints
+M	apps/client-cli/src/main.ts
+A	apps/client-ui/src/module/api-key/api-key.atom.test.ts
+A	apps/client-ui/src/module/api-key/api-key.atom.ts
+A	apps/client-ui/src/module/api-key/api-key.route.tsx
+A	apps/client-ui/src/module/api-key/ui/api-key-panel.ui.story.tsx
+A	apps/client-ui/src/module/api-key/ui/api-key-panel.ui.tsx
+M	apps/client-ui/src/module/session/session-detail.route.tsx
+M	apps/client-ui/src/module/session/session.atom.ts
+A	apps/client-ui/src/module/session/ui/session-remote-endpoints.ui.story.tsx
+A	apps/client-ui/src/module/session/ui/session-remote-endpoints.ui.tsx
+M	apps/client-ui/src/module/session/ui/session-timeline.ui.story.tsx
+M	apps/client-ui/src/module/session/ui/session-timeline.ui.tsx
+M	apps/client-ui/src/routeTree.gen.ts
+M	apps/client-ui/src/routes.ts
+M	apps/client-ui/src/shared/ui/module-layout.ui.tsx
+M	apps/server-core/.env.example
+M	apps/server-core/.env.local
+A	apps/server-core/drizzle/20260427000100_add_api_keys/migration.sql
+M	apps/server-core/src/main.ts
+A	apps/server-core/src/module/api-key/api-key.repo.ts
+A	apps/server-core/src/module/api-key/api-key.rpc.contract.ts
+A	apps/server-core/src/module/api-key/api-key.rpc.impl.ts
+A	apps/server-core/src/module/api-key/api-key.schema.ts
+A	apps/server-core/src/module/api-key/api-key.service.test.ts
+A	apps/server-core/src/module/api-key/api-key.service.ts
+A	apps/server-core/src/module/api-key/api-key.table.ts
+A	apps/server-core/src/module/sessions/remote-gateway.proxy.ts
+A	apps/server-core/src/module/sessions/remote-gateway.service.test.ts
+A	apps/server-core/src/module/sessions/remote-gateway.service.ts
+M	apps/server-core/src/module/sessions/session-bootstrap.service.test.ts
+M	apps/server-core/src/module/sessions/session-bootstrap.service.ts
+M	apps/server-core/src/module/sessions/session-ec2.service.test.ts
+M	apps/server-core/src/module/sessions/session-ec2.service.ts
+M	apps/server-core/src/module/sessions/sessions.schema.ts
+M	apps/server-core/src/module/sessions/sessions.workflow.ts
+M	apps/server-core/src/platform/db.impl.ts
+M	apps/server-core/src/platform/rpc.contract.ts
+M	infra/aws.ts
+M	infra/aws/agent-app.stack.ts
+M	infra/aws/agent-edge.stack.ts
+
+3b53176 - Kevin, 3 months ago : feat: Add EC2 AMI ID and instance type to AgentAppStack environment variables
+M	infra/aws/agent-app.stack.ts
+
+c429fff - Kevin, 3 months ago : fix: update dockerfile and logger format
+M	apps/server-core/Dockerfile
+M	apps/server-core/src/main.ts
+
+141283f - Kevin, 3 months ago : feat: update env.local
+M	apps/server-core/.env.local
+
+37e6dd0 - Kevin, 3 months ago : style: format linted files
+M	AGENTS.md
+M	apps/client-ui/src/module/health/health.ui.tsx
+A	apps/client-ui/src/module/health/use-health-status.hook.test.ts
+M	apps/client-ui/src/module/module.route.skill.md
+M	apps/client-ui/src/module/session/ui/session-list-error.ui.story.tsx
+M	apps/client-ui/src/module/session/ui/session-list-loading.ui.tsx
+M	apps/client-ui/src/module/session/ui/session-list.ui.tsx
+A	apps/client-ui/src/module/session/use-sessions.hook.test.ts
+M	apps/client-ui/src/module/session/use-sessions.hook.ts
+M	apps/client-ui/src/routeTree.gen.ts
+M	apps/client-ui/src/shared/state.skill.md
+M	apps/client-ui/src/shared/ui/alert.ui.story.tsx
+M	apps/client-ui/src/shared/ui/alert.ui.tsx
+M	apps/client-ui/src/shared/ui/button.ui.story.tsx
+M	apps/client-ui/src/shared/ui/combobox.ui.story.tsx
+M	apps/client-ui/src/shared/ui/empty.ui.story.tsx
+M	apps/client-ui/src/shared/ui/empty.ui.tsx
+M	apps/client-ui/src/shared/ui/scroll-area.ui.tsx
+M	apps/client-ui/src/shared/ui/tooltip.ui.story.tsx
+M	apps/server-core/drizzle/20260423145633_yielding_night_nurse/snapshot.json
+M	apps/server-core/src/module/health/health.http.impl.ts
+M	apps/server-core/src/module/module.service.skill.md
+M	apps/server-core/src/module/module.skill.md
+M	apps/server-core/src/platform/auth/auth.middleware.ts
+M	apps/server-core/src/platform/db.config.ts
+M	apps/server-core/src/platform/db.impl.ts
+M	apps/server-core/src/platform/ec2.contract.ts
+M	lefthook.yml
+M	packages/server-seed/src/scenarios/single-user.ts
+M	tools/oxlint-effect/plugin.mjs
+
+3ee9cdd - Kevin, 3 months ago : feat: add EC2 session reconciliation and metrics
+M	apps/client-ui/package.json
+M	apps/client-ui/src/app.route.tsx
+M	apps/client-ui/src/module/auth/auth.route.tsx
+M	apps/client-ui/src/module/auth/ui/login-form.ui.story.tsx
+M	apps/client-ui/src/module/auth/ui/login-form.ui.tsx
+M	apps/client-ui/src/module/session/session-detail.route.tsx
+A	apps/client-ui/src/module/session/session-ec2-reconcile.route.tsx
+M	apps/client-ui/src/module/session/session.atom.ts
+M	apps/client-ui/src/module/session/session.route.tsx
+A	apps/client-ui/src/module/session/ui/session-metrics.ui.story.tsx
+A	apps/client-ui/src/module/session/ui/session-metrics.ui.tsx
+M	apps/client-ui/src/module/session/ui/session-timeline.ui.tsx
+M	apps/client-ui/src/routeTree.gen.ts
+M	apps/client-ui/src/routes.ts
+A	apps/client-ui/src/shared/ui/chart.ui.story.tsx
+A	apps/client-ui/src/shared/ui/chart.ui.tsx
+M	apps/client-ui/src/shared/ui/module-layout.ui.story.tsx
+M	apps/client-ui/src/shared/ui/module-layout.ui.tsx
+M	apps/server-core/package.json
+M	apps/server-core/src/main.ts
+A	apps/server-core/src/module/sessions/session-bootstrap.service.test.ts
+A	apps/server-core/src/module/sessions/session-bootstrap.service.ts
+A	apps/server-core/src/module/sessions/session-ec2.service.test.ts
+A	apps/server-core/src/module/sessions/session-ec2.service.ts
+A	apps/server-core/src/module/sessions/session-metrics.service.ts
+A	apps/server-core/src/module/sessions/sessions.ec2-reconcile.ts
+M	apps/server-core/src/module/sessions/sessions.repo.ts
+M	apps/server-core/src/module/sessions/sessions.rpc.contract.ts
+M	apps/server-core/src/module/sessions/sessions.rpc.impl.ts
+A	apps/server-core/src/module/sessions/sessions.scheduler.ts
+M	apps/server-core/src/module/sessions/sessions.schema.ts
+M	apps/server-core/src/module/sessions/sessions.service.ts
+M	apps/server-core/src/module/sessions/sessions.workflow.ts
+M	apps/server-core/src/platform/auth/auth.contract.ts
+M	apps/server-core/src/platform/auth/auth.http.contract.ts
+M	apps/server-core/src/platform/auth/auth.impl.ts
+A	apps/server-core/src/platform/cloudwatch.contract.ts
+A	apps/server-core/src/platform/cloudwatch.impl.ts
+M	apps/server-core/src/platform/rpc.contract.ts
+M	apps/server-core/src/platform/workflow.impl.ts
+M	infra/aws.ts
+M	infra/aws/agent-app.stack.ts
+M	packages/server-seed/package.json
+M	packages/server-seed/src/scenarios/index.ts
+M	packages/server-seed/src/scenarios/reset.ts
+A	packages/server-seed/src/scenarios/seed-metrics.ts
+M	pnpm-lock.yaml
+
+1554ecd - Kevin, 3 months ago : feat: stream session lifecycle events via RPC + PubSub
+M	apps/client-cli/src/main.ts
+M	apps/client-ui/index.html
+A	apps/client-ui/public/sparkle.svg
+D	apps/client-ui/public/vite.svg
+M	apps/client-ui/src/app.route.tsx
+M	apps/client-ui/src/module/auth/ui/login-form.ui.tsx
+A	apps/client-ui/src/module/session/session-detail.route.tsx
+A	apps/client-ui/src/module/session/session.atom.test.ts
+M	apps/client-ui/src/module/session/session.atom.ts
+M	apps/client-ui/src/module/session/session.route.tsx
+A	apps/client-ui/src/module/session/ui/session-create-dialog.ui.story.tsx
+A	apps/client-ui/src/module/session/ui/session-create-dialog.ui.tsx
+A	apps/client-ui/src/module/session/ui/session-detail.ui.story.tsx
+A	apps/client-ui/src/module/session/ui/session-detail.ui.tsx
+M	apps/client-ui/src/module/session/ui/session-item.ui.story.tsx
+M	apps/client-ui/src/module/session/ui/session-item.ui.tsx
+M	apps/client-ui/src/module/session/ui/session-list.ui.story.tsx
+A	apps/client-ui/src/module/session/ui/session-status-badge.ui.story.tsx
+A	apps/client-ui/src/module/session/ui/session-status-badge.ui.tsx
+A	apps/client-ui/src/module/session/ui/session-timeline.ui.story.tsx
+A	apps/client-ui/src/module/session/ui/session-timeline.ui.tsx
+M	apps/client-ui/src/routeTree.gen.ts
+M	apps/client-ui/src/routes.ts
+A	apps/client-ui/src/shared/ui/alert-dialog.ui.story.tsx
+A	apps/client-ui/src/shared/ui/alert-dialog.ui.tsx
+A	apps/client-ui/src/shared/ui/dialog.ui.story.tsx
+A	apps/client-ui/src/shared/ui/dialog.ui.tsx
+M	apps/client-ui/src/shared/ui/logo.ui.tsx
+M	apps/client-ui/src/shared/ui/module-layout.ui.tsx
+M	apps/server-core/.env.local
+M	apps/server-core/drizzle.config.ts
+A	apps/server-core/drizzle/20260425145122_magical_jackpot/migration.sql
+A	apps/server-core/drizzle/20260425145122_magical_jackpot/snapshot.json
+A	apps/server-core/drizzle/20260425161417_good_cyclops/migration.sql
+A	apps/server-core/drizzle/20260425161417_good_cyclops/snapshot.json
+M	apps/server-core/src/main.ts
+A	apps/server-core/src/module/sessions/sessions.name.ts
+M	apps/server-core/src/module/sessions/sessions.repo.ts
+M	apps/server-core/src/module/sessions/sessions.rpc.contract.ts
+M	apps/server-core/src/module/sessions/sessions.rpc.impl.ts
+M	apps/server-core/src/module/sessions/sessions.schema.ts
+M	apps/server-core/src/module/sessions/sessions.service.ts
+M	apps/server-core/src/module/sessions/sessions.table.ts
+M	apps/server-core/src/module/sessions/sessions.workflow.ts
+M	apps/server-core/src/platform/rpc.contract.ts
+M	packages/client-api/src/rpc.ts
+
+ea450ad - Kevin, 3 months ago : fix: point to correct oauth
+A	.dockerignore
+M	.gitignore
+A	apps/server-core/.env.example
+D	apps/server-core/.env.local.example
+M	apps/server-core/Dockerfile
+M	apps/server-core/src/platform/auth/auth.impl.ts
+
+3972713 - Kevin, 3 months ago : debug: unable to understand debug log
+M	apps/server-core/src/platform/auth/auth.impl.ts
+
+5ad2817 - Kevin, 3 months ago : debug: log auth wrap cause
+M	apps/server-core/src/platform/auth/auth.impl.ts
+
+5dcf446 - Kevin, 3 months ago : fix: force ipv4
+M	apps/server-core/Dockerfile
+
+5f50d99 - Kevin, 3 months ago : fix: update deploy
+M	.github/workflows/deploy.yaml
+
+0f00bfc - Kevin, 3 months ago : fix: update dockerfile
+M	apps/server-core/Dockerfile
+M	infra/aws/agent-app.stack.ts
+
+8245036 - Kevin, 3 months ago : feat: wire google oauth + better-auth secrets into ecs task
+M	infra/aws/agent-app.stack.ts
+
+b5f4ab2 - Kevin, 3 months ago : fix: update cloudfront
+M	.github/workflows/deploy.yaml
+M	infra/aws.ts
+M	infra/aws/agent-app.stack.ts
+M	infra/aws/agent-edge.stack.ts
+
+f45e317 - Kevin, 3 months ago : fix: update lefthook exit code
+M	package.json
+
+cc04189 - Kevin, 3 months ago : fix: remove bun.lock
+D	apps/server-core/bun.lock
+
+4b03685 - Kevin, 3 months ago : fix: update lock file
+D	bun.lock
+M	package.json
+M	pnpm-lock.yaml
+
+b9b6bfd - Kevin, 3 months ago : fix: move ErrorSessionNotFound to schema to avoid pulling node:crypto into client-api
+M	apps/server-core/src/module/sessions/sessions.rpc.contract.ts
+M	apps/server-core/src/module/sessions/sessions.schema.ts
+M	apps/server-core/src/module/sessions/sessions.service.test.ts
+M	apps/server-core/src/module/sessions/sessions.service.ts
+M	apps/server-core/src/platform/rpc.contract.ts
+
+abe29df - Kevin, 3 months ago : fix: add lefthook and cache layers
+M	.github/workflows/deploy.yaml
+M	apps/client-ui/src/module/session/ui/session-filter.ui.tsx
+A	lefthook.yml
+M	package.json
+
+19f8d30 - Kevin, 3 months ago : feat: add cloudfront
+M	.github/workflows/deploy.yaml
+M	infra/aws.ts
+M	infra/aws/agent-app.stack.ts
+A	infra/aws/agent-edge.stack.ts
+M	infra/package.json
+
+764c80a - Kevin, 3 months ago : fix: update reject unauthorised
+M	apps/server-core/src/platform/cluster.impl.ts
+M	apps/server-core/src/platform/db.config.ts
+M	apps/server-core/src/platform/sql.impl.ts
+
+7d8b06a - Kevin, 3 months ago : fix: update ssl correctly
+M	apps/server-core/Dockerfile
+M	apps/server-core/src/platform/cluster.impl.ts
+M	apps/server-core/src/platform/db.config.ts
+M	apps/server-core/src/platform/db.impl.ts
+M	apps/server-core/src/platform/sql.impl.ts
+M	infra/aws/agent-app.stack.ts
+
+56d959d - Kevin, 3 months ago : fix: move db config
+M	apps/server-core/src/platform/cluster.impl.ts
+A	apps/server-core/src/platform/db.config.ts
+M	apps/server-core/src/platform/db.impl.ts
+M	apps/server-core/src/platform/sql.impl.ts
+
+f856da0 - Kevin, 3 months ago : fix: require ssl
+M	apps/server-core/src/platform/db.impl.ts
+
+0575267 - Kevin, 3 months ago : fix: update config and database
+M	apps/server-core/src/main.ts
+M	apps/server-core/src/platform/db.impl.ts
+M	infra/aws/agent-app.stack.ts
+
+2103b92 - Kevin, 3 months ago : fix: force DB _URL
+M	apps/server-core/src/main.ts
+M	apps/server-core/src/platform/db.impl.ts
+
+01729c9 - Kevin, 3 months ago : fix: update port allocation
+M	apps/server-core/.dockerignore
+M	apps/server-core/src/main.ts
+
+01aecd9 - Kevin, 3 months ago : fix: dockerfile errors
+M	apps/server-core/.dockerignore
+M	apps/server-core/Dockerfile
+
+f40f2eb - Kevin, 3 months ago : fix: update dockerfile
+M	apps/server-core/.dockerignore
+M	apps/server-core/Dockerfile
+
+b7738f2 - Kevin, 3 months ago : feat: updated lint and rules
+M	.github/workflows/deploy.yaml
+M	.oxlintrc.json
+M	apps/client-cli/src/main.ts
+M	apps/client-ui/package.json
+M	apps/client-ui/src/module/auth/auth.route.tsx
+D	apps/client-ui/src/module/health/health.atom-http.ts
+M	apps/client-ui/src/module/health/use-health-status.hook.ts
+M	apps/client-ui/src/module/module.atom.skill.md
+D	apps/client-ui/src/module/session/session.atom-rpc.ts
+A	apps/client-ui/src/module/session/session.atom.ts
+M	apps/client-ui/src/module/session/session.route.tsx
+M	apps/client-ui/src/module/session/ui/session-item.ui.story.tsx
+M	apps/client-ui/src/module/session/ui/session-item.ui.tsx
+M	apps/client-ui/src/module/session/ui/session-list.ui.story.tsx
+M	apps/client-ui/src/module/session/ui/session-list.ui.tsx
+A	apps/client-ui/src/module/session/use-sessions.hook.ts
+D	apps/client-ui/src/shared/hook/use-atom.hook.test.ts
+D	apps/client-ui/src/shared/hook/use-atom.hook.ts
+A	apps/client-ui/src/shared/state.skill.md
+M	apps/client-ui/tsconfig.app.json
+M	apps/client-ui/tsconfig.node.json
+M	apps/client-ui/vite.config.ts
+D	apps/server-core/drizzle/0000_tranquil_shocker.sql
+R066	apps/server-core/drizzle/0001_natural_doctor_strange.sql	apps/server-core/drizzle/20260423145633_yielding_night_nurse/migration.sql
+A	apps/server-core/drizzle/20260423145633_yielding_night_nurse/snapshot.json
+D	apps/server-core/drizzle/meta/0000_snapshot.json
+D	apps/server-core/drizzle/meta/0001_snapshot.json
+D	apps/server-core/drizzle/meta/_journal.json
+M	apps/server-core/package.json
+M	apps/server-core/src/main.ts
+M	apps/server-core/src/module/health/health.http.impl.ts
+M	apps/server-core/src/module/module.repo.skill.md
+M	apps/server-core/src/module/module.service.skill.md
+M	apps/server-core/src/module/module.skill.md
+D	apps/server-core/src/module/sessions/sessions.repo.contract.ts
+D	apps/server-core/src/module/sessions/sessions.repo.impl.ts
+A	apps/server-core/src/module/sessions/sessions.repo.ts
+M	apps/server-core/src/module/sessions/sessions.rpc.contract.ts
+M	apps/server-core/src/module/sessions/sessions.rpc.impl.ts
+M	apps/server-core/src/module/sessions/sessions.schema.ts
+D	apps/server-core/src/module/sessions/sessions.service.contract.ts
+M	apps/server-core/src/module/sessions/sessions.service.test.ts
+R054	apps/server-core/src/module/sessions/sessions.service.impl.ts	apps/server-core/src/module/sessions/sessions.service.ts
+A	apps/server-core/src/module/sessions/sessions.workflow.ts
+A	apps/server-core/src/module/users/users.repo.contract.ts
+A	apps/server-core/src/module/users/users.repo.impl.ts
+A	apps/server-core/src/module/users/users.schema.ts
+R081	apps/server-core/src/platform/auth/auth.http.ts	apps/server-core/src/platform/auth/auth.catchall.ts
+M	apps/server-core/src/platform/auth/auth.contract.ts
+A	apps/server-core/src/platform/auth/auth.http.contract.ts
+A	apps/server-core/src/platform/auth/auth.http.impl.ts
+M	apps/server-core/src/platform/auth/auth.impl.ts
+A	apps/server-core/src/platform/cluster.impl.ts
+M	apps/server-core/src/platform/db.contract.ts
+M	apps/server-core/src/platform/db.impl.ts
+M	apps/server-core/src/platform/ec2.impl.ts
+M	apps/server-core/src/platform/http.contract.ts
+A	apps/server-core/src/platform/http.impl.ts
+M	apps/server-core/src/platform/rpc.contract.ts
+M	apps/server-core/src/platform/rpc.impl.ts
+A	apps/server-core/src/platform/sql.impl.ts
+A	apps/server-core/src/platform/workflow.impl.ts
+M	apps/server-core/tsconfig.json
+M	infra/aws/agent-app.stack.ts
+M	infra/cdk.context.json
+M	package.json
+M	packages/client-api/package.json
+A	packages/client-api/src/http-atom.ts
+A	packages/client-api/src/rpc-atom.ts
+M	packages/client-api/src/rpc.ts
+A	packages/server-seed/package.json
+A	packages/server-seed/src/main.ts
+A	packages/server-seed/src/scenario.ts
+A	packages/server-seed/src/scenarios/expiring-sessions.ts
+A	packages/server-seed/src/scenarios/index.ts
+A	packages/server-seed/src/scenarios/pagination.ts
+A	packages/server-seed/src/scenarios/reset.ts
+A	packages/server-seed/src/scenarios/single-user.ts
+A	packages/server-seed/tsconfig.json
+A	patches/drizzle-orm@1.0.0-beta.22.patch
+M	pnpm-lock.yaml
+M	tools/oxlint-effect/plugin.mjs
+M	tsconfig.base.json
+
+5779b20 - Kevin, 4 months ago : feat: add more scaffolding
+M	.claude/skills/effect/SKILL.md
+A	.github/workflows/deploy.validate.sh
+A	.github/workflows/deploy.yaml
+M	.gitignore
+M	.oxlintrc.json
+M	AGENTS.md
+M	apps/client-cli/package.json
+M	apps/client-cli/src/main.ts
+D	apps/client-ui/.ladle/components.tsx
+D	apps/client-ui/.ladle/config.mjs
+D	apps/client-ui/.ladle/vite.config.ts
+M	apps/client-ui/.oxlintrc.json
+A	apps/client-ui/.storybook/main.ts
+A	apps/client-ui/.storybook/preview.tsx
+A	apps/client-ui/.storybook/vite.config.ts
+A	apps/client-ui/.tanstack/tmp/a22287e3-c5cc0bd114107ff9d224b0f929db1334
+M	apps/client-ui/package.json
+M	apps/client-ui/scripts/shadcn-add.mjs
+D	apps/client-ui/src/app.route.test.tsx
+M	apps/client-ui/src/app.route.tsx
+M	apps/client-ui/src/index.css
+M	apps/client-ui/src/main.tsx
+A	apps/client-ui/src/module/auth/auth.route.tsx
+A	apps/client-ui/src/module/auth/ui/auth-popover.ui.story.tsx
+A	apps/client-ui/src/module/auth/ui/auth-popover.ui.tsx
+A	apps/client-ui/src/module/auth/ui/login-form.ui.story.tsx
+A	apps/client-ui/src/module/auth/ui/login-form.ui.tsx
+A	apps/client-ui/src/module/health/health.atom-http.ts
+A	apps/client-ui/src/module/health/health.ui.story.tsx
+A	apps/client-ui/src/module/health/health.ui.tsx
+A	apps/client-ui/src/module/health/use-health-status.hook.ts
+M	apps/client-ui/src/module/module.atom.skill.md
+M	apps/client-ui/src/module/module.route.skill.md
+M	apps/client-ui/src/module/module.skill.md
+A	apps/client-ui/src/module/module.ui.skill.md
+A	apps/client-ui/src/module/module.ui.story.skill.md
+M	apps/client-ui/src/module/session/session.atom-rpc.ts
+D	apps/client-ui/src/module/session/session.route.test.tsx
+M	apps/client-ui/src/module/session/session.route.tsx
+A	apps/client-ui/src/module/session/ui/session-filter.ui.story.tsx
+A	apps/client-ui/src/module/session/ui/session-filter.ui.tsx
+A	apps/client-ui/src/module/session/ui/session-item.ui.story.tsx
+A	apps/client-ui/src/module/session/ui/session-item.ui.tsx
+A	apps/client-ui/src/module/session/ui/session-list-empty.ui.story.tsx
+A	apps/client-ui/src/module/session/ui/session-list-empty.ui.tsx
+A	apps/client-ui/src/module/session/ui/session-list-error.ui.story.tsx
+A	apps/client-ui/src/module/session/ui/session-list-error.ui.tsx
+A	apps/client-ui/src/module/session/ui/session-list-loading.ui.story.tsx
+A	apps/client-ui/src/module/session/ui/session-list-loading.ui.tsx
+A	apps/client-ui/src/module/session/ui/session-list.ui.story.tsx
+A	apps/client-ui/src/module/session/ui/session-list.ui.tsx
+M	apps/client-ui/src/routeTree.gen.ts
+M	apps/client-ui/src/routes.ts
+M	apps/client-ui/src/shared/hook/use-atom.hook.test.ts
+M	apps/client-ui/src/shared/hook/use-atom.hook.ts
+M	apps/client-ui/src/shared/hook/use-mobile.hook.test.ts
+M	apps/client-ui/src/shared/hook/use-mobile.hook.ts
+M	apps/client-ui/src/shared/provider/theme.provider.tsx
+A	apps/client-ui/src/shared/ui/alert.ui.story.tsx
+A	apps/client-ui/src/shared/ui/alert.ui.tsx
+D	apps/client-ui/src/shared/ui/app-sidebar.ui.story.tsx
+D	apps/client-ui/src/shared/ui/app-sidebar.ui.test.tsx
+D	apps/client-ui/src/shared/ui/app-sidebar.ui.tsx
+M	apps/client-ui/src/shared/ui/button.ui.story.tsx
+D	apps/client-ui/src/shared/ui/button.ui.test.tsx
+M	apps/client-ui/src/shared/ui/button.ui.tsx
+A	apps/client-ui/src/shared/ui/combobox.ui.story.tsx
+A	apps/client-ui/src/shared/ui/combobox.ui.tsx
+A	apps/client-ui/src/shared/ui/empty.ui.story.tsx
+A	apps/client-ui/src/shared/ui/empty.ui.tsx
+M	apps/client-ui/src/shared/ui/input.ui.story.tsx
+D	apps/client-ui/src/shared/ui/input.ui.test.tsx
+M	apps/client-ui/src/shared/ui/input.ui.tsx
+A	apps/client-ui/src/shared/ui/logo.ui.story.tsx
+A	apps/client-ui/src/shared/ui/logo.ui.tsx
+A	apps/client-ui/src/shared/ui/module-layout.ui.story.tsx
+A	apps/client-ui/src/shared/ui/module-layout.ui.tsx
+A	apps/client-ui/src/shared/ui/popover.ui.story.tsx
+A	apps/client-ui/src/shared/ui/popover.ui.tsx
+A	apps/client-ui/src/shared/ui/scroll-area.ui.story.tsx
+A	apps/client-ui/src/shared/ui/scroll-area.ui.tsx
+M	apps/client-ui/src/shared/ui/separator.ui.story.tsx
+D	apps/client-ui/src/shared/ui/separator.ui.test.tsx
+M	apps/client-ui/src/shared/ui/separator.ui.tsx
+M	apps/client-ui/src/shared/ui/sheet.ui.story.tsx
+D	apps/client-ui/src/shared/ui/sheet.ui.test.tsx
+M	apps/client-ui/src/shared/ui/sheet.ui.tsx
+M	apps/client-ui/src/shared/ui/sidebar.ui.story.tsx
+D	apps/client-ui/src/shared/ui/sidebar.ui.test.tsx
+M	apps/client-ui/src/shared/ui/sidebar.ui.tsx
+M	apps/client-ui/src/shared/ui/skeleton.ui.story.tsx
+D	apps/client-ui/src/shared/ui/skeleton.ui.test.tsx
+M	apps/client-ui/src/shared/ui/skeleton.ui.tsx
+M	apps/client-ui/src/shared/ui/tooltip.ui.story.tsx
+D	apps/client-ui/src/shared/ui/tooltip.ui.test.tsx
+M	apps/client-ui/src/shared/ui/tooltip.ui.tsx
+M	apps/client-ui/src/shared/ui/ui.skill.md
+M	apps/client-ui/src/shared/ui/ui.story.skill.md
+D	apps/client-ui/src/shared/ui/ui.test.skill.md
+M	apps/client-ui/src/shared/util/cn.util.test.ts
+M	apps/client-ui/src/shared/util/cn.util.ts
+M	apps/client-ui/src/shared/util/format-timestamp.util.test.ts
+M	apps/client-ui/src/shared/util/format-timestamp.util.ts
+M	apps/client-ui/src/shared/util/util.skill.md
+M	apps/client-ui/tsconfig.json
+M	apps/client-ui/vite.config.ts
+A	apps/client-ui/vitest.config.ts
+A	apps/server-core/.dockerignore
+A	apps/server-core/.env.local
+A	apps/server-core/.env.local.example
+A	apps/server-core/Dockerfile
+M	apps/server-core/drizzle.config.ts
+D	apps/server-core/drizzle/0000_hard_molecule_man.sql
+A	apps/server-core/drizzle/0000_tranquil_shocker.sql
+A	apps/server-core/drizzle/0001_natural_doctor_strange.sql
+M	apps/server-core/drizzle/meta/0000_snapshot.json
+A	apps/server-core/drizzle/meta/0001_snapshot.json
+M	apps/server-core/drizzle/meta/_journal.json
+M	apps/server-core/package.json
+M	apps/server-core/src/main.ts
+A	apps/server-core/src/module/health/health.http.contract.ts
+A	apps/server-core/src/module/health/health.http.impl.ts
+M	apps/server-core/src/module/health/health.rpc.contract.ts
+M	apps/server-core/src/module/health/health.rpc.impl.ts
+D	apps/server-core/src/module/module.error.skill.md
+M	apps/server-core/src/module/module.repo.skill.md
+M	apps/server-core/src/module/module.rpc.skill.md
+M	apps/server-core/src/module/module.schema.skill.md
+M	apps/server-core/src/module/module.service-test.skill.md
+M	apps/server-core/src/module/module.service.skill.md
+M	apps/server-core/src/module/module.skill.md
+M	apps/server-core/src/module/module.table.skill.md
+D	apps/server-core/src/module/sessions/sessions.error.ts
+M	apps/server-core/src/module/sessions/sessions.repo.contract.ts
+M	apps/server-core/src/module/sessions/sessions.repo.impl.ts
+M	apps/server-core/src/module/sessions/sessions.rpc.contract.ts
+M	apps/server-core/src/module/sessions/sessions.rpc.impl.ts
+M	apps/server-core/src/module/sessions/sessions.schema.ts
+M	apps/server-core/src/module/sessions/sessions.service.contract.ts
+M	apps/server-core/src/module/sessions/sessions.service.impl.ts
+M	apps/server-core/src/module/sessions/sessions.service.test.ts
+D	apps/server-core/src/module/sessions/sessions.service.ts
+M	apps/server-core/src/module/sessions/sessions.table.ts
+A	apps/server-core/src/platform/auth/auth.contract.ts
+A	apps/server-core/src/platform/auth/auth.http.ts
+A	apps/server-core/src/platform/auth/auth.impl.ts
+A	apps/server-core/src/platform/auth/auth.middleware.ts
+A	apps/server-core/src/platform/auth/auth.table.ts
+M	apps/server-core/src/platform/db.contract.ts
+M	apps/server-core/src/platform/db.impl.ts
+A	apps/server-core/src/platform/ec2.contract.ts
+A	apps/server-core/src/platform/ec2.impl.ts
+A	apps/server-core/src/platform/http.contract.ts
+M	apps/server-core/src/platform/rpc.contract.ts
+M	apps/server-core/src/platform/rpc.impl.ts
+M	apps/server-core/tsconfig.json
+M	apps/server-core/vitest.config.ts
+M	docs/effect/AGENTS.md
+M	docs/effect/LLMS.md
+M	docs/effect/README.md
+M	docs/effect/ai-docs/src/01_effect/01_basics/01_effect-gen.ts
+M	docs/effect/ai-docs/src/01_effect/01_basics/02_effect-fn.ts
+M	docs/effect/ai-docs/src/01_effect/01_basics/10_creating-effects.ts
+M	docs/effect/ai-docs/src/01_effect/02_services/01_service.ts
+M	docs/effect/ai-docs/src/01_effect/02_services/10_reference.ts
+M	docs/effect/ai-docs/src/01_effect/02_services/20_layer-composition.ts
+M	docs/effect/ai-docs/src/01_effect/02_services/20_layer-unwrap.ts
+M	docs/effect/ai-docs/src/01_effect/03_errors/01_error-handling.ts
+M	docs/effect/ai-docs/src/01_effect/03_errors/10_catch-tags.ts
+M	docs/effect/ai-docs/src/01_effect/03_errors/20_reason-errors.ts
+M	docs/effect/ai-docs/src/01_effect/04_resources/10_acquire-release.ts
+M	docs/effect/ai-docs/src/01_effect/04_resources/20_layer-side-effects.ts
+M	docs/effect/ai-docs/src/01_effect/04_resources/30_layer-map.ts
+M	docs/effect/ai-docs/src/01_effect/05_running/10_run-main.ts
+M	docs/effect/ai-docs/src/01_effect/05_running/20_layer-launch.ts
+M	docs/effect/ai-docs/src/01_effect/06_pubsub/10_pubsub.ts
+M	docs/effect/ai-docs/src/02_stream/10_creating-streams.ts
+M	docs/effect/ai-docs/src/02_stream/20_consuming-streams.ts
+M	docs/effect/ai-docs/src/02_stream/30_encoding.ts
+M	docs/effect/ai-docs/src/03_integration/10_managed-runtime.ts
+M	docs/effect/ai-docs/src/05_batching/10_request-resolver.ts
+M	docs/effect/ai-docs/src/06_schedule/10_schedules.ts
+M	docs/effect/ai-docs/src/08_observability/10_logging.ts
+M	docs/effect/ai-docs/src/08_observability/20_otlp-tracing.ts
+M	docs/effect/ai-docs/src/09_testing/10_effect-tests.ts
+M	docs/effect/ai-docs/src/09_testing/20_layer-tests.ts
+M	docs/effect/ai-docs/src/50_http-client/10_basics.ts
+M	docs/effect/ai-docs/src/51_http-server/10_basics.ts
+M	docs/effect/ai-docs/src/51_http-server/fixtures/api/Api.ts
+M	docs/effect/ai-docs/src/51_http-server/fixtures/api/Authorization.ts
+M	docs/effect/ai-docs/src/51_http-server/fixtures/api/System.ts
+M	docs/effect/ai-docs/src/51_http-server/fixtures/api/Users.ts
+M	docs/effect/ai-docs/src/51_http-server/fixtures/domain/User.ts
+M	docs/effect/ai-docs/src/51_http-server/fixtures/domain/UserErrors.ts
+M	docs/effect/ai-docs/src/51_http-server/fixtures/server/Authorization.ts
+M	docs/effect/ai-docs/src/51_http-server/fixtures/server/Users.ts
+M	docs/effect/ai-docs/src/51_http-server/fixtures/server/Users/http.ts
+M	docs/effect/ai-docs/src/60_child-process/10_working-with-child-processes.ts
+M	docs/effect/ai-docs/src/70_cli/10_basics.ts
+M	docs/effect/ai-docs/src/71_ai/10_language-model.ts
+M	docs/effect/ai-docs/src/71_ai/20_tools.ts
+M	docs/effect/ai-docs/src/71_ai/30_chat.ts
+M	docs/effect/ai-docs/src/71_ai/fixtures/domain/LaunchPlan.ts
+M	docs/effect/ai-docs/src/80_cluster/10_entities.ts
+A	emulate.config.yaml
+A	infra/.env.local
+A	infra/aws.ts
+A	infra/aws/agent-app.stack.ts
+A	infra/aws/agent-ci.stack.ts
+A	infra/cdk.context.json
+A	infra/cdk.json
+A	infra/dev/Caddyfile
+A	infra/dev/docker-file.yaml
+A	infra/dev/status.sh
+A	infra/package.json
+A	infra/tsconfig.json
+M	package.json
+A	packages/client-api/package.json
+A	packages/client-api/src/http.ts
+A	packages/client-api/src/rpc.ts
+A	packages/client-api/tsconfig.json
+M	pnpm-lock.yaml
+M	pnpm-workspace.yaml
+M	tools/oxlint-effect/plugin.mjs
+
+d281d80 - Kevin, 4 months ago : init: first commit!
+A	.claude/skills/effect/SKILL.md
+A	.gitignore
+A	.oxlintrc.json
+A	AGENTS.md
+A	CLAUDE.md
+A	apps/client-cli/package.json
+A	apps/client-cli/src/main.ts
+A	apps/client-cli/tsconfig.json
+A	apps/client-ui/.gitignore
+A	apps/client-ui/.ladle/components.tsx
+A	apps/client-ui/.ladle/config.mjs
+A	apps/client-ui/.ladle/vite.config.ts
+A	apps/client-ui/.oxlintrc.json
+A	apps/client-ui/components.json
+A	apps/client-ui/index.html
+A	apps/client-ui/package.json
+A	apps/client-ui/public/vite.svg
+A	apps/client-ui/scripts/shadcn-add.mjs
+A	apps/client-ui/src/app.route.test.tsx
+A	apps/client-ui/src/app.route.tsx
+A	apps/client-ui/src/index.css
+A	apps/client-ui/src/main.tsx
+A	apps/client-ui/src/module/module.atom.skill.md
+A	apps/client-ui/src/module/module.route.skill.md
+A	apps/client-ui/src/module/module.skill.md
+A	apps/client-ui/src/module/session/session.atom-rpc.ts
+A	apps/client-ui/src/module/session/session.route.test.tsx
+A	apps/client-ui/src/module/session/session.route.tsx
+A	apps/client-ui/src/routeTree.gen.ts
+A	apps/client-ui/src/routes.ts
+A	apps/client-ui/src/shared/hook/hook.skill.md
+A	apps/client-ui/src/shared/hook/use-atom.hook.test.ts
+A	apps/client-ui/src/shared/hook/use-atom.hook.ts
+A	apps/client-ui/src/shared/hook/use-mobile.hook.test.ts
+A	apps/client-ui/src/shared/hook/use-mobile.hook.ts
+A	apps/client-ui/src/shared/provider/theme.provider.tsx
+A	apps/client-ui/src/shared/ui/app-sidebar.ui.story.tsx
+A	apps/client-ui/src/shared/ui/app-sidebar.ui.test.tsx
+A	apps/client-ui/src/shared/ui/app-sidebar.ui.tsx
+A	apps/client-ui/src/shared/ui/button.ui.story.tsx
+A	apps/client-ui/src/shared/ui/button.ui.test.tsx
+A	apps/client-ui/src/shared/ui/button.ui.tsx
+A	apps/client-ui/src/shared/ui/input.ui.story.tsx
+A	apps/client-ui/src/shared/ui/input.ui.test.tsx
+A	apps/client-ui/src/shared/ui/input.ui.tsx
+A	apps/client-ui/src/shared/ui/separator.ui.story.tsx
+A	apps/client-ui/src/shared/ui/separator.ui.test.tsx
+A	apps/client-ui/src/shared/ui/separator.ui.tsx
+A	apps/client-ui/src/shared/ui/sheet.ui.story.tsx
+A	apps/client-ui/src/shared/ui/sheet.ui.test.tsx
+A	apps/client-ui/src/shared/ui/sheet.ui.tsx
+A	apps/client-ui/src/shared/ui/sidebar.ui.story.tsx
+A	apps/client-ui/src/shared/ui/sidebar.ui.test.tsx
+A	apps/client-ui/src/shared/ui/sidebar.ui.tsx
+A	apps/client-ui/src/shared/ui/skeleton.ui.story.tsx
+A	apps/client-ui/src/shared/ui/skeleton.ui.test.tsx
+A	apps/client-ui/src/shared/ui/skeleton.ui.tsx
+A	apps/client-ui/src/shared/ui/tooltip.ui.story.tsx
+A	apps/client-ui/src/shared/ui/tooltip.ui.test.tsx
+A	apps/client-ui/src/shared/ui/tooltip.ui.tsx
+A	apps/client-ui/src/shared/ui/ui.skill.md
+A	apps/client-ui/src/shared/ui/ui.story.skill.md
+A	apps/client-ui/src/shared/ui/ui.test.skill.md
+A	apps/client-ui/src/shared/util/cn.util.test.ts
+A	apps/client-ui/src/shared/util/cn.util.ts
+A	apps/client-ui/src/shared/util/format-timestamp.util.test.ts
+A	apps/client-ui/src/shared/util/format-timestamp.util.ts
+A	apps/client-ui/src/shared/util/util.skill.md
+A	apps/client-ui/tsconfig.app.json
+A	apps/client-ui/tsconfig.json
+A	apps/client-ui/tsconfig.node.json
+A	apps/client-ui/vite.config.ts
+A	apps/server-core/bun.lock
+A	apps/server-core/drizzle.config.ts
+A	apps/server-core/drizzle/0000_hard_molecule_man.sql
+A	apps/server-core/drizzle/meta/0000_snapshot.json
+A	apps/server-core/drizzle/meta/_journal.json
+A	apps/server-core/package.json
+A	apps/server-core/src/main.ts
+A	apps/server-core/src/module/health/health.rpc.contract.ts
+A	apps/server-core/src/module/health/health.rpc.impl.ts
+A	apps/server-core/src/module/module.error.skill.md
+A	apps/server-core/src/module/module.repo.skill.md
+A	apps/server-core/src/module/module.rpc.skill.md
+A	apps/server-core/src/module/module.schema.skill.md
+A	apps/server-core/src/module/module.service-test.skill.md
+A	apps/server-core/src/module/module.service.skill.md
+A	apps/server-core/src/module/module.skill.md
+A	apps/server-core/src/module/module.table.skill.md
+A	apps/server-core/src/module/sessions/sessions.error.ts
+A	apps/server-core/src/module/sessions/sessions.repo.contract.ts
+A	apps/server-core/src/module/sessions/sessions.repo.impl.ts
+A	apps/server-core/src/module/sessions/sessions.rpc.contract.ts
+A	apps/server-core/src/module/sessions/sessions.rpc.impl.ts
+A	apps/server-core/src/module/sessions/sessions.schema.ts
+A	apps/server-core/src/module/sessions/sessions.service.contract.ts
+A	apps/server-core/src/module/sessions/sessions.service.impl.ts
+A	apps/server-core/src/module/sessions/sessions.service.test.ts
+A	apps/server-core/src/module/sessions/sessions.service.ts
+A	apps/server-core/src/module/sessions/sessions.table.ts
+A	apps/server-core/src/platform/db.contract.ts
+A	apps/server-core/src/platform/db.impl.ts
+A	apps/server-core/src/platform/rpc.contract.ts
+A	apps/server-core/src/platform/rpc.impl.ts
+A	apps/server-core/tsconfig.json
+A	apps/server-core/vitest.config.ts
+A	bun.lock
+A	docs/effect/AGENTS.md
+A	docs/effect/LLMS.md
+A	docs/effect/README.md
+A	docs/effect/ai-docs/README.md
+A	docs/effect/ai-docs/src/01_effect/01_basics/01_effect-gen.ts
+A	docs/effect/ai-docs/src/01_effect/01_basics/02_effect-fn.ts
+A	docs/effect/ai-docs/src/01_effect/01_basics/10_creating-effects.ts
+A	docs/effect/ai-docs/src/01_effect/01_basics/index.md
+A	docs/effect/ai-docs/src/01_effect/02_services/01_service.ts
+A	docs/effect/ai-docs/src/01_effect/02_services/10_reference.ts
+A	docs/effect/ai-docs/src/01_effect/02_services/20_layer-composition.ts
+A	docs/effect/ai-docs/src/01_effect/02_services/20_layer-unwrap.ts
+A	docs/effect/ai-docs/src/01_effect/02_services/index.md
+A	docs/effect/ai-docs/src/01_effect/03_errors/01_error-handling.ts
+A	docs/effect/ai-docs/src/01_effect/03_errors/10_catch-tags.ts
+A	docs/effect/ai-docs/src/01_effect/03_errors/20_reason-errors.ts
+A	docs/effect/ai-docs/src/01_effect/03_errors/index.md
+A	docs/effect/ai-docs/src/01_effect/04_resources/10_acquire-release.ts
+A	docs/effect/ai-docs/src/01_effect/04_resources/20_layer-side-effects.ts
+A	docs/effect/ai-docs/src/01_effect/04_resources/30_layer-map.ts
+A	docs/effect/ai-docs/src/01_effect/04_resources/index.md
+A	docs/effect/ai-docs/src/01_effect/05_running/10_run-main.ts
+A	docs/effect/ai-docs/src/01_effect/05_running/20_layer-launch.ts
+A	docs/effect/ai-docs/src/01_effect/05_running/index.md
+A	docs/effect/ai-docs/src/01_effect/06_pubsub/10_pubsub.ts
+A	docs/effect/ai-docs/src/01_effect/06_pubsub/index.md
+A	docs/effect/ai-docs/src/02_stream/10_creating-streams.ts
+A	docs/effect/ai-docs/src/02_stream/20_consuming-streams.ts
+A	docs/effect/ai-docs/src/02_stream/30_encoding.ts
+A	docs/effect/ai-docs/src/02_stream/index.md
+A	docs/effect/ai-docs/src/03_integration/10_managed-runtime.ts
+A	docs/effect/ai-docs/src/03_integration/index.md
+A	docs/effect/ai-docs/src/05_batching/10_request-resolver.ts
+A	docs/effect/ai-docs/src/05_batching/index.md
+A	docs/effect/ai-docs/src/06_schedule/10_schedules.ts
+A	docs/effect/ai-docs/src/06_schedule/index.md
+A	docs/effect/ai-docs/src/08_observability/10_logging.ts
+A	docs/effect/ai-docs/src/08_observability/20_otlp-tracing.ts
+A	docs/effect/ai-docs/src/08_observability/index.md
+A	docs/effect/ai-docs/src/09_testing/10_effect-tests.ts
+A	docs/effect/ai-docs/src/09_testing/20_layer-tests.ts
+A	docs/effect/ai-docs/src/09_testing/index.md
+A	docs/effect/ai-docs/src/50_http-client/10_basics.ts
+A	docs/effect/ai-docs/src/50_http-client/index.md
+A	docs/effect/ai-docs/src/51_http-server/10_basics.ts
+A	docs/effect/ai-docs/src/51_http-server/fixtures/api/Api.ts
+A	docs/effect/ai-docs/src/51_http-server/fixtures/api/Authorization.ts
+A	docs/effect/ai-docs/src/51_http-server/fixtures/api/System.ts
+A	docs/effect/ai-docs/src/51_http-server/fixtures/api/Users.ts
+A	docs/effect/ai-docs/src/51_http-server/fixtures/domain/User.ts
+A	docs/effect/ai-docs/src/51_http-server/fixtures/domain/UserErrors.ts
+A	docs/effect/ai-docs/src/51_http-server/fixtures/server/Authorization.ts
+A	docs/effect/ai-docs/src/51_http-server/fixtures/server/Users.ts
+A	docs/effect/ai-docs/src/51_http-server/fixtures/server/Users/http.ts
+A	docs/effect/ai-docs/src/51_http-server/index.md
+A	docs/effect/ai-docs/src/60_child-process/10_working-with-child-processes.ts
+A	docs/effect/ai-docs/src/60_child-process/index.md
+A	docs/effect/ai-docs/src/70_cli/10_basics.ts
+A	docs/effect/ai-docs/src/70_cli/index.md
+A	docs/effect/ai-docs/src/71_ai/10_language-model.ts
+A	docs/effect/ai-docs/src/71_ai/20_tools.ts
+A	docs/effect/ai-docs/src/71_ai/30_chat.ts
+A	docs/effect/ai-docs/src/71_ai/fixtures/domain/LaunchPlan.ts
+A	docs/effect/ai-docs/src/71_ai/index.md
+A	docs/effect/ai-docs/src/80_cluster/10_entities.ts
+A	docs/effect/ai-docs/src/80_cluster/index.md
+A	docs/effect/ai-docs/src/index.md
+A	package.json
+A	pnpm-lock.yaml
+A	pnpm-workspace.yaml
+A	tools/oxlint-effect/plugin.mjs
+A	tsconfig.base.json
+

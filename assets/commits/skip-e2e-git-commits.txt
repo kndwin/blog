@@ -1,0 +1,62 @@
+git commits for resume research
+
+===== e2e =====
+
+f9c530b - kevin-sucasa, 8 weeks ago : test: acknowledge CCR consent checkboxes in application flows (SUC-4926) (#100)
+M	lefthook.yml
+M	src/artillery/processor.ts
+M	src/assessment/assessment.broker-application.spec.ts
+M	src/assessment/assessment.stateful-stamp-duty.spec.ts
+M	src/broker/broker.application-flow.spec.ts
+M	src/broker/broker.application-save-isolation.spec.ts
+M	src/broker/broker.application-save.spec.ts
+M	src/broker/pages/application-form.ts
+M	src/broker/pages/registration.ts
+M	src/dtc/application-flow-helper.ts
+M	src/round-trip/broker-to-assessment.spec.ts
+M	src/shared/constants.ts
+
+fc23d33 - kevin-sucasa, 2 months ago : test(SUC-4731): click Submit Application on tailor solutions step (#88)
+M	src/dtc/application-flow-helper.ts
+M	src/dtc/pages/application-page.ts
+
+b0af826 - kevin-sucasa, 2 months ago : test(assessment): assert totalFeesAndDuty after Apply stamp duty (#86)
+M	src/assessment/assessment.stateful-stamp-duty.spec.ts
+
+0a1e5d3 - Kevin, 3 months ago : fix: remove decision page from test suite
+M	src/assessment/assessment.smoke.spec.ts
+
+9b223c5 - Kevin, 3 months ago : fix: remove annotate from smoke test
+M	src/assessment/assessment.smoke.spec.ts
+
+fc72597 - kevin-sucasa, 4 months ago : fix: update selector for combox for application flow (#75)
+M	src/broker/broker.application-save-isolation.spec.ts
+M	src/broker/broker.application-save.spec.ts
+M	src/broker/pages/application-form-v2/liabilities.ts
+
+ee0ebf5 - kevin-sucasa, 4 months ago : fix: update selector to be correct (#74)
+M	src/broker/pages/application-form-v2/circumstances.ts
+M	src/broker/pages/application-form-v2/liabilities.ts
+
+4ee7eef - kevin-sucasa, 4 months ago : fix: update liabilities e2e to use combobox for institution fields (#73)
+M	src/broker/pages/application-form-v2/liabilities.ts
+
+6f14ebc - kevin-sucasa, 5 months ago : fix: update smoke test (#61)
+M	src/assessment/assessment.smoke.spec.ts
+
+ecd9b09 - kevin-sucasa, 5 months ago : fix: update test case to re-use auth0 and add smoke test (#59)
+M	src/assessment/assessment-portal-app.ts
+M	src/assessment/assessment.logged-in.spec.ts
+A	src/assessment/assessment.smoke.spec.ts
+M	src/assessment/assessment.stateful-stamp-duty.spec.ts
+
+9a02f56 - kevin-sucasa, 5 months ago : Merge pull request #58 from sucasa-finance/fix/add-token-to-refresh
+d0b1837 - Kevin, 5 months ago : fix: added access token to url
+M	src/assessment/assessment-portal-app.ts
+M	src/assessment/assessment.stateful-stamp-duty.spec.ts
+
+9203d98 - Kevin, 5 months ago : fix: add token to page reloads
+M	src/assessment/assessment.stamp-duty-calculator.some.spec.ts
+M	src/assessment/assessment.stamp-duty-calculator.spec.ts
+M	src/assessment/stamp-duty-helpers.ts
+
