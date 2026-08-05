@@ -21,6 +21,12 @@ git log --author="$(git config user.name)" --since="1 year ago" --name-status --
 
 ## Work experience
 
+### Patch - Senior Software Engineer (Contract) (Aug 2026 - Current)
+
+- **Building a full-stack geospatial platform serving NSW cadastre (property parcel) data** — lot lookup API, Mapbox Vector Tile streaming, and an ArcGIS REST compatibility layer.
+- **Designed a zero-downtime data pipeline**: a multi-day Effect-based workflow engine (25+ typed activities, cron-scheduled) that downloads ESRI FileGeoDatabase exports, imports via GDAL into PostGIS staging tables, atomically promotes them in a single transaction, and publishes PMTiles archives to Cloudflare R2.
+- **Stack**: Bun, Effect v4 `HttpApi` with schema-derived OpenAPI docs, Drizzle, PostgreSQL 16 + PostGIS (GiST spatial indexing), React 19/Mapbox GL dashboard, and Railway infrastructure-as-code.
+
 ### Skip - Senior Product Engineer (Jan 2026 - Current)
 
 #### **Credit Decisioning Engine**
@@ -214,11 +220,6 @@ git log --author="$(git config user.name)" --since="1 year ago" --name-status --
 - Real-time collaborative messaging platform with channels, threads, task boards, and AI agent integration — shipped across web, desktop (Electron), and mobile (React Native/Expo) from a single monorepo.
 - Local-first architecture: TanStack Electric sync with client-side SQLite, backed by a Hono/tRPC/Drizzle/Postgres API built on the Effect functional framework.
 - Production infrastructure across Cloudflare (Workers routing, R2, Pages) and Railway, with GitHub Actions CI/CD and a deterministic scene-based testing framework for seeded QA environments.
-
-### Patch (PostGIS cadastre platform)
-- Full-stack geospatial platform serving NSW cadastre (property parcel) data — lot lookup API, Mapbox Vector Tile streaming, and an ArcGIS REST compatibility layer.
-- Zero-downtime data pipeline: a multi-day Effect-based workflow engine (25+ typed activities, cron-scheduled) that downloads ESRI FileGeoDatabase exports, imports via GDAL into PostGIS staging tables, atomically promotes them, and publishes PMTiles archives to Cloudflare R2.
-- Built on Bun, Effect v4 `HttpApi` with schema-derived OpenAPI docs, Drizzle, PostgreSQL 16 + PostGIS (GiST spatial indexing), React 19/Mapbox GL dashboard, and Railway infrastructure-as-code.
 
 ### Hayom
 - Link: [Hayom](https://hayom.pages.dev/) - Source: [GitHub - Linear clone](https://github.com/kndwin/hayom)
