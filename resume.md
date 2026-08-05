@@ -21,12 +21,6 @@ git log --author="$(git config user.name)" --since="1 year ago" --name-status --
 
 ## Work experience
 
-### Patch - Senior Software Engineer (Contract) (Aug 2026 - Current)
-
-- **Building a full-stack geospatial platform serving NSW cadastre (property parcel) data** — lot lookup API, Mapbox Vector Tile streaming, and an ArcGIS REST compatibility layer.
-- **Designed a zero-downtime data pipeline**: a multi-day Effect-based workflow engine (25+ typed activities, cron-scheduled) that downloads ESRI FileGeoDatabase exports, imports via GDAL into PostGIS staging tables, atomically promotes them in a single transaction, and publishes PMTiles archives to Cloudflare R2.
-- **Stack**: Bun, Effect v4 `HttpApi` with schema-derived OpenAPI docs, Drizzle, PostgreSQL 16 + PostGIS (GiST spatial indexing), React 19/Mapbox GL dashboard, and Railway infrastructure-as-code.
-
 ### Skip - Senior Product Engineer (Jan 2026 - Current)
 
 #### **Credit Decisioning Engine**
@@ -93,48 +87,48 @@ git log --author="$(git config user.name)" --since="1 year ago" --name-status --
 
 #### **Infrastructure & Cloud Engineering (AWS CDK)**
 
-- **Led a major infrastructure refactor using AWS CDK to provision a new, isolated "Recipe" microservice**, which included a new VPC, RDS database with a secure bastion host for debugging, and a full ECS deployment with an Application Load Balancer, ECR repositories, and CloudFront for content delivery.
+- **Provisioned an isolated "Recipe" microservice with AWS CDK**, including a new VPC, RDS database with a secure bastion host, ECS deployment, Application Load Balancer, ECR repositories, and CloudFront delivery.
 
-- **Architected and implemented a robust, multi-stack CI/CD pipeline using GitHub Actions and AWS CDK**, enabling automated, environment-specific deployments for different services (e.g., recipe-app, application) and improving release velocity and reliability.
+- **Architected a multi-stack CI/CD pipeline with GitHub Actions and AWS CDK**, enabling automated, environment-specific deployments for services including `recipe-app` and the main application.
 
 - **Engineered and integrated a production-ready ClickHouse cluster using AWS PrivateLink**, establishing secure, private connectivity between the ECS services and the OLAP database. Configured bastion hosts and security groups to allow for secure SSH and database connections.
 
-- **Drove a significant architectural simplification by decommissioning the EKS cluster and removing Qdrant as a dependency**, reducing infrastructure complexity, operational overhead, and associated costs.
+- **Simplified the platform by decommissioning the EKS cluster and removing Qdrant as a production dependency**, eliminating an operationally separate vector database.
 
-- **Enhanced system observability and alerting by integrating AWS Managed Grafana for monitoring and configuring AWS Chatbot** to send critical CloudWatch alarms directly to Slack, improving incident response times.
+- **Integrated AWS Managed Grafana and AWS Chatbot**, routing critical CloudWatch alarms to Slack for operational visibility.
 
-- **Scaled out the messaging and queueing infrastructure by provisioning multiple SQS queues via CDK** (e.g., FeedbackSyncIngestionQueue, CustomerSyncIngestionQueue, DeleteHighlightQueue), enabling more robust and decoupled asynchronous processing.
+- **Provisioned decoupled SQS workflows through CDK**, including feedback-sync, customer-sync, and highlight-deletion queues.
 
-- **Implemented auto-scaling for the Kubernetes cluster by adding Karpenter to the Qdrant search service declaratively through AWS CDK**, optimizing resource utilization and cost-efficiency.
+- **Added declarative Karpenter auto-scaling for the Kubernetes-hosted Qdrant search service through AWS CDK.**
 
 - **Assisted in enabling GPU instances for ECS to empower the machine learning service**, allowing the team to leverage more powerful models for data processing and analysis.
 
 #### **Architecture & System Design**
 
-- **Spearheaded the design and full-stack implementation of a "Graph of Thought" research agent**, a novel feature for complex, multi-step data analysis. This involved architecting new backend services, GraphQL APIs, database schemas with Drizzle ORM, and corresponding frontend components.
+- **Designed and implemented a full-stack "Graph of Thought" research agent** for multi-step data analysis, spanning backend services, GraphQL APIs, Drizzle schemas, and frontend components.
 
-- **Drove a monorepo-wide refactoring to consolidate shared GraphQL schemas, types, and client configurations into a unified package**, significantly improving code reusability, type safety, and developer experience across the service, ui, and web-extension projects.
+- **Consolidated shared GraphQL schemas, types, and client configuration into a monorepo package**, aligning the service, UI, and web-extension projects around shared contracts.
 
-- **Designed a summary persistence system with MDX support**, allowing for the storage and retrieval of AI-generated summaries and enabling rich, formatted report rendering in the frontend.
+- **Designed summary persistence with MDX support** for storing, retrieving, and rendering richly formatted AI-generated reports in the frontend.
 
 
 #### **Python Machine Learning Service**
 
 - **Owned and re-architected the Python machine-learning service** (keyphrase extraction, embeddings, topic clustering), restructuring it from flat scripts into a modular FastAPI service with layered `api/service` modules and OpenAPI schemas consumed by the TypeScript backend via a generated client.
-- **Cut ML infrastructure cost and complexity by replacing GPU-hosted sentence-transformer models with OpenAI embedding API calls**, right-sizing ECS task definitions across four environments (US/EU × staging/prod) and removing the torch/CUDA dependency chain.
+- **Reduced ML infrastructure complexity by replacing GPU-hosted sentence-transformer models with OpenAI embedding API calls**, right-sizing ECS task definitions across US/EU staging and production and removing the torch/CUDA dependency chain.
 - **Led the decommissioning of Qdrant and the top-down trend clustering pipeline** — deleting the SQS/S3-driven HDBSCAN/UMAP cluster generation system for highlight and keyphrase trends in favour of ClickHouse-backed queries, removing an entire vector database from production.
 - **Built a custom KeyBERT-based keyphrase extractor** with curated stopwords, text cleaning, and full-text-search variants, tuned via high-load tests and lean generation paths to survive production volumes.
 - **Hardened the ML service for production**: direct Postgres/ClickHouse connection pooling (replacing Prisma-python), dedicated health-check threads, graceful empty-input handling, queue throttling, and a Pipfile→uv migration.
 
 #### **Backend Development & Performance Optimization**
 
-- **Dramatically improved query performance for keyphrase trends by designing and implementing ClickHouse materialized views**, reducing query latency from minutes to seconds and offloading intensive analytical work from the primary Postgres database.
+- **Improved keyphrase-trend query performance with ClickHouse materialized views**, moving intensive analytical work off the primary Postgres database.
 - **Introduced ClickHouse as the OLAP filtering engine end-to-end** — client, migrations, denormalised filterable-highlights tables, an advanced-filter query builder, and refreshable/materialized views — and led the multi-tenancy hardening effort adding indexed `orgId` scoping across all relational tables with batched backfill migrations.
 - **Bootstrapped a greenfield "Recipe" agent browser-testing service** on Stagehand: GraphQL API with Drizzle/Postgres, auth, S3 image storage, OpenTelemetry, and staging/prod ECS deploy pipelines via GitHub Actions.
 
-- **Improved Postgres performance by analyzing queries with EXPLAIN**, leading to targeted optimizations and schema adjustments that reduced query timeouts from over 60 seconds to under 5 seconds for critical data retrieval operations.
+- **Improved Postgres performance by analyzing queries with `EXPLAIN`**, leading to targeted query and schema optimizations for critical data retrieval operations.
 
-- **Implemented a Redis caching layer for frequently accessed data**, including highlight counts and trend run results, which reduced database load and improved API response times for key application features.
+- **Implemented Redis caching for frequently accessed data**, including highlight counts and trend-run results, to reduce repeated database work.
 
 - **Developed and secured a new API module with a comprehensive authentication and authorization layer**, enforcing user-specific data access through database migrations and service-level logic.
 
@@ -142,7 +136,7 @@ git log --author="$(git config user.name)" --since="1 year ago" --name-status --
 
 #### **DevOps & CI/CD**
 
-- **Rolled out a semver release process using git tagging and GitHub Actions**, which automatically generated and published detailed release notes to Slack, improving transparency and communication across the organization.
+- **Rolled out a semver release process using Git tags and GitHub Actions**, automatically generating and publishing detailed release notes to Slack.
 
 - **Integrated the Claude AI into the CI/CD pipeline for automated code reviews**, helping to enforce coding standards, catch potential bugs, and improve overall code quality.
 
@@ -152,17 +146,13 @@ git log --author="$(git config user.name)" --since="1 year ago" --name-status --
 
 - **Led a significant frontend modernization effort by upgrading the main UI to React 19**, refactoring numerous components to align with the new version's features while ensuring application stability and performance.
 
-- **Championed the adoption of shadcn/ui and compositional patterns in the React codebase**, which reduced bundle size through tree-shaking and improved the maintainability and consistency of the user interface.
+- **Adopted shadcn/ui and compositional patterns in the React codebase**, improving consistency and maintainability while retaining tree-shakeable components.
 
 - **Built and launched a new "Personal Feed" UI**, providing users with a customized, dynamic, and engaging view of their data, complete with activity logs and trend visualizations.
 
 - **Developed a feature-flagged, table-based view for browsing highlights**, offering users an alternative to the existing list view with enhanced sorting, filtering, and bulk-action capabilities.
 
 - **Upgraded the Chrome extension to Manifest V3**, enhancing its functionality with new features and ensuring compliance with the latest browser standards.
-
-### Fullsuite - Senior Software Engineer (Contract) (Sep 2023 - Nov 2024)
-- Implemented POC with encryption using libsodium CHACHA20-POLY1305 and exposed through Expo Modules.
-- Building Auth, Mobile (Expo), Web app (react), back-end (HonoJS, Turso) for a new startup.
 
 ### Mirvac - Senior Front-end Engineer (Jan 2022 - Aug 2024)
 - Achieved "Employee of the Quarter" for delivering mobile of allowing users digital access through the app.
@@ -174,11 +164,6 @@ git log --author="$(git config user.name)" --since="1 year ago" --name-status --
 - Managed internal engineer scaling issues by automating several manual processes and providing documentation.
 - Built a live retro feedback tool for other teams and initiated a company-wide hackathon.
 
-### Pitbull BSC - Front-end Developer (Contract) (Mar 2021 - Jan 2022)
-- Implemented a Telegram price bot using Node.js, AWS Gateway, AWS Lambda, and Serverless (SLS).
-- Developed PitStop, a Next.js application utilizing ethers.js and web3modal for future application efforts.
-- Built PitChart, a GraphQL-powered data visualization tool displaying OLHC data over time using react-financial-chart.
-
 ### Atelier - Full-stack Developer (Aug 2021 - Jan 2022)
 - Enhanced the front-end by developing reusable components using SASS and Apollo Client, resulting in improved code maintainability and enhanced user experience.
 - Implemented a robust backend infrastructure using Prisma, Nexus, and Apollo Server, ensuring seamless CRUD operations and optimal performance.
@@ -189,6 +174,24 @@ git log --author="$(git config user.name)" --since="1 year ago" --name-status --
 ### Appian - Solution Engineer (Jan 2020 - Jul 2021)
 - Demonstrated expertise in supporting various components of the Appian stack, including application servers (Tomcat, JBoss), web servers (IIS, Apache), RDBMS (MySQL/Mariadb), Apache Kafka, Elasticsearch, and integrations with Appian.
 - Proficiently handled additional technologies such as AWS Cloud architecture, networking/VPN (IPsec), Linux (SSH/busybox tools), accessibility compliance (WCAG), and resource contention management (CPU/Memory/Threads).
+
+## Contract work
+
+### Patch - Senior Software Engineer (Contract) (Aug 2026 - Current)
+
+- **Building a full-stack geospatial platform serving NSW cadastre (property parcel) data** — lot lookup API, Mapbox Vector Tile streaming, and an ArcGIS REST compatibility layer.
+- **Designed a zero-downtime snapshot sync flow** that imports ESRI FileGeoDatabase exports via GDAL into PostGIS staging tables, validates the snapshot, and atomically promotes it while existing API routes continue serving the previous data.
+- **Implemented geospatial delivery integrations** for Mapbox Vector Tiles, PMTiles served from Cloudflare R2, and a constrained ArcGIS REST-compatible query endpoint.
+- **Stack**: Bun, Effect v4 `HttpApi` with schema-derived OpenAPI docs, Drizzle, PostgreSQL 16 + PostGIS (GiST spatial indexing), React 19/Mapbox GL dashboard, and Railway infrastructure-as-code.
+
+### Fullsuite - Senior Software Engineer (Contract) (Sep 2023 - Nov 2024)
+- Implemented POC with encryption using libsodium CHACHA20-POLY1305 and exposed through Expo Modules.
+- Building Auth, Mobile (Expo), Web app (react), back-end (HonoJS, Turso) for a new startup.
+
+### Pitbull BSC - Front-end Developer (Contract) (Mar 2021 - Jan 2022)
+- Implemented a Telegram price bot using Node.js, AWS Gateway, AWS Lambda, and Serverless (SLS).
+- Developed PitStop, a Next.js application utilizing ethers.js and web3modal for future application efforts.
+- Built PitChart, a GraphQL-powered data visualization tool displaying OLHC data over time using react-financial-chart.
 
 ## Speaking & Presentations
 - **Codex For Founders Sydney (Jun 2026):** Presented on agentic coding workflows and codebase design for AI agents at the Codex community event, Stone & Chalk Tech Central. [[Event]](https://luma.com/mlai-nrn7) [[Slides]](https://demo.getcave.ai/s/agentic-codebase-todo)
@@ -215,11 +218,11 @@ git log --author="$(git config user.name)" --since="1 year ago" --name-status --
 - NangoHQ/nango - fix: update error message for provider key missing ([#2622](https://github.com/NangoHQ/nango/pull/2622))
 
 ## Projects
-### Cave
+### Cave — Founder & Engineer (2026 - Current)
 - Link: [getcave.ai](https://getcave.ai)
-- Real-time collaborative messaging platform with channels, threads, task boards, and AI agent integration — shipped across web, desktop (Electron), and mobile (React Native/Expo) from a single monorepo.
-- Local-first architecture: TanStack Electric sync with client-side SQLite, backed by a Hono/tRPC/Drizzle/Postgres API built on the Effect functional framework.
-- Production infrastructure across Cloudflare (Workers routing, R2, Pages) and Railway, with GitHub Actions CI/CD and a deterministic scene-based testing framework for seeded QA environments.
+- Side project and stealth startup with an early user base, building real-time collaborative messaging with channels, threads, task boards, and AI agent integration across web, desktop (Electron), and mobile (React Native/Expo).
+- Local-first architecture using TanStack Electric with client-side SQLite, backed by a Hono/tRPC/Drizzle/Postgres API built on Effect.
+- Cloudflare and Railway infrastructure with GitHub Actions CI/CD, shared web/Electron/mobile packages, and deterministic scene-based QA for seeded environments.
 
 ### Hayom
 - Link: [Hayom](https://hayom.pages.dev/) - Source: [GitHub - Linear clone](https://github.com/kndwin/hayom)
