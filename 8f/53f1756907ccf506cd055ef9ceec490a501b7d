@@ -1,0 +1,21 @@
+assets/commits/cave-git-commits.txt
+  s_a282fc0f19d230::t_428f4a04c449c8 1-27233
+assets/commits/patch-git-commits.txt
+  s_a282fc0f19d230::t_c6cfff781fa72c 1-150
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.20",
+  "base_commit_sha": "8f53f1756907ccf506cd055ef9ceec490a501b7d",
+  "prompts": {},
+  "sessions": {
+    "s_a282fc0f19d230": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "4c9478c1-111f-4648-ad4f-b9c8d9851e54",
+        "model": "claude-fable-5"
+      },
+      "human_author": "Kevin <kevin@sucasa.com.au>"
+    }
+  }
+}
