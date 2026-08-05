@@ -112,15 +112,23 @@ git log --author="$(git config user.name)" --since="1 year ago" --name-status --
 - **Designed a summary persistence system with MDX support**, allowing for the storage and retrieval of AI-generated summaries and enabling rich, formatted report rendering in the frontend.
 
 
+#### **Python Machine Learning Service**
+
+- **Owned and re-architected the Python machine-learning service** (keyphrase extraction, embeddings, topic clustering), restructuring it from flat scripts into a modular FastAPI service with layered `api/service` modules and OpenAPI schemas consumed by the TypeScript backend via a generated client.
+- **Cut ML infrastructure cost and complexity by replacing GPU-hosted sentence-transformer models with OpenAI embedding API calls**, right-sizing ECS task definitions across four environments (US/EU × staging/prod) and removing the torch/CUDA dependency chain.
+- **Led the decommissioning of Qdrant and the top-down trend clustering pipeline** — deleting the SQS/S3-driven HDBSCAN/UMAP cluster generation system for highlight and keyphrase trends in favour of ClickHouse-backed queries, removing an entire vector database from production.
+- **Built a custom KeyBERT-based keyphrase extractor** with curated stopwords, text cleaning, and full-text-search variants, tuned via high-load tests and lean generation paths to survive production volumes.
+- **Hardened the ML service for production**: direct Postgres/ClickHouse connection pooling (replacing Prisma-python), dedicated health-check threads, graceful empty-input handling, queue throttling, and a Pipfile→uv migration.
+
 #### **Backend Development & Performance Optimization**
 
 - **Dramatically improved query performance for keyphrase trends by designing and implementing ClickHouse materialized views**, reducing query latency from minutes to seconds and offloading intensive analytical work from the primary Postgres database.
+- **Introduced ClickHouse as the OLAP filtering engine end-to-end** — client, migrations, denormalised filterable-highlights tables, an advanced-filter query builder, and refreshable/materialized views — and led the multi-tenancy hardening effort adding indexed `orgId` scoping across all relational tables with batched backfill migrations.
+- **Bootstrapped a greenfield "Recipe" agent browser-testing service** on Stagehand: GraphQL API with Drizzle/Postgres, auth, S3 image storage, OpenTelemetry, and staging/prod ECS deploy pipelines via GitHub Actions.
 
 - **Improved Postgres performance by analyzing queries with EXPLAIN**, leading to targeted optimizations and schema adjustments that reduced query timeouts from over 60 seconds to under 5 seconds for critical data retrieval operations.
 
 - **Implemented a Redis caching layer for frequently accessed data**, including highlight counts and trend run results, which reduced database load and improved API response times for key application features.
-
-- **Refactored the Python-based machine learning services for improved performance and cost-efficiency**, transitioning from GPU-heavy sentence-transformer models to optimized OpenAI API calls for keyphrase extraction and topic generation.
 
 - **Developed and secured a new API module with a comprehensive authentication and authorization layer**, enforcing user-specific data access through database migrations and service-level logic.
 
