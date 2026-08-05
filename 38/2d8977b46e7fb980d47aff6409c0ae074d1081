@@ -1,0 +1,14 @@
+resume.md
+  h_ba3efde196eb39 90,92,96,98,100,102,108,110,112,118,125,129,131,139,149,178-195,221,223-225
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.20",
+  "base_commit_sha": "382d8977b46e7fb980d47aff6409c0ae074d1081",
+  "prompts": {},
+  "humans": {
+    "h_ba3efde196eb39": {
+      "author": "Kevin <kevin@sucasa.com.au>"
+    }
+  }
+}
