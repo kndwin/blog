@@ -1,0 +1,20 @@
+resume.md
+  s_0aa501b7a4fb28::t_60d4c02ef7833d 188
+  s_0aa501b7a4fb28::t_414f8415d42c9f 203
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.20",
+  "base_commit_sha": "88f08782bd64b26ba8c10aee860792830461ab04",
+  "prompts": {},
+  "sessions": {
+    "s_0aa501b7a4fb28": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "d8fd12aa-9613-44e9-bd79-675373f35108",
+        "model": "claude-fable-5"
+      },
+      "human_author": "Kevin <kevin@sucasa.com.au>"
+    }
+  }
+}
