@@ -185,6 +185,7 @@ git log --author="$(git config user.name)" --since="1 year ago" --name-status --
 - Proficiently handled additional technologies such as AWS Cloud architecture, networking/VPN (IPsec), Linux (SSH/busybox tools), accessibility compliance (WCAG), and resource contention management (CPU/Memory/Threads).
 
 ## Speaking & Presentations
+- **Codex For Founders Sydney (Jun 2026):** Presented on agentic coding workflows and codebase design for AI agents at the Codex community event, Stone & Chalk Tech Central. [[Event]](https://luma.com/mlai-nrn7) [[Slides]](https://demo.getcave.ai/s/agentic-codebase-todo)
 - **AWS Startup Dev Day Sydney (Sep 2025):** Co-presented *"Real-time analytics with Sauce AI and ClickHouse"* alongside ClickHouse Solutions Architect Johnny Mirza. [[Slides]](https://docs.google.com/presentation/d/1G-uBXJaQa7yHk3tR47r79eQzaFjiIALdUDl8JBmm_H4/edit?usp=sharing)
 <img src="./assets/aws-talk.jpeg" alt="AWS Startup Dev Day Sydney 2025 Banner" width="300" style="border-radius: 8px; margin-bottom: 12px;"/>
 
@@ -199,6 +200,7 @@ git log --author="$(git config user.name)" --since="1 year ago" --name-status --
 
 
 ## Open source contributions and Blog
+- **["You should build your own agentic harness"](https://blog.skiploans.com.au/you-should-build-your-own-agentic-harness-db19fa16272b)** (Skip engineering blog, Mar 2026) — eleven practical principles for making codebases and workflows agent-friendly: operational frameworks like Effect, predictable code patterns, custom linting for architectural constraints, and session-type-aware model/token budgeting.
 - effect-workflow-lambda (Durable Effect workflows on AWS Lambda) - Author/maintainer, developed in collaboration with the Effect core team ([repo](https://github.com/sucasa-finance/effect-workflow-lambda))
 - Honojs (Lightweight Express) - docs: update typo and add warning to #url() to use absolute URL ([#203](https://github.com/honojs/website/pull/203))
 - Outstatic (Git-based CMS) - fix: author name check ([#169](https://github.com/avitorio/outstatic/pull/169))
