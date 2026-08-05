@@ -30,6 +30,10 @@ git log --author="$(git config user.name)" --since="1 year ago" --name-status --
 - **Implemented a human override mechanism** allowing credit assessors to manually override any rule's `PASS/FAIL/SKIP` state, providing a controlled escape hatch for edge cases without bypassing the audit trail.
 - **Designed a document reconciliation system** that cross-references OCR-extracted liability data against Comprehensive Credit Reporting (CCR) entries, flagging discrepancies for assessor review.
 - **Integrated the Australian Business Register (ABR) API** to validate ABNs during identity and employment verification checks.
+- **Led a multi-repo migration from application-level to per-applicant rules** across 15+ rule families (credit score, enquiries, defaults, missed repayments, financial hardship, age of file, identity, liability tolerances), published via versioned typed API contracts and rolled out with zero-downtime deprecation of legacy rules.
+- **Built CCR liability reconciliation** matching declared liabilities against Comprehensive Credit Reporting bureau data using LLM-assisted entity matching with canonical lender names, joint-account dedupe, account-type compatibility enforcement, and cross-applicant matching.
+- **Designed a rule lifecycle and assessor-feedback system** — accuracy feedback per rule, testing-vs-production lifecycle separation, and a sign-off promotion path for calibrating automated rules into production with mandatory review comments.
+- **Established canonical document types and a document tagging system** with a reconciliation classifier, bulk tagging runtime with source tracking, and tag-driven OCR document-type resolution.
 
 #### **AI-Driven OCR Extraction Pipeline**
 
@@ -37,6 +41,7 @@ git log --author="$(git config user.name)" --since="1 year ago" --name-status --
 - **Built OCR extraction modules for 10+ document types**: payslips (employer, salary, pay period), identity documents (passport, driver licence with both-side support, Medicare card, birth certificate, visa grant), and liability statements (BNPL, credit card, car loan, personal loan, home loan/mortgage, HECS/HELP).
 - **Developed a dedicated LLM evaluation framework** (`evals`) to systematically benchmark and score AI agent accuracy on document extraction tasks, with a CLI for running backtests with configurable `currentIso` date context and Auth0-reuse for test sessions.
 - **Added an OCR extraction trigger service** with a dev-tool endpoint enabling on-demand extraction runs during development, integrated with LocalStack for local AWS emulation.
+- **Re-architected the extraction pipeline onto a durable workflow engine** (Effect Workflow on AWS Lambda) with independent stages, consensus handling across re-runs, DLQ poison-message handling, and big-PDF text fallback with schema-mismatch recovery.
 
 #### **LEAP Assessment Dashboard**
 
@@ -53,6 +58,12 @@ git log --author="$(git config user.name)" --since="1 year ago" --name-status --
 - **Integrated OpenTelemetry distributed tracing** across backend services, providing deep observability into OCR extraction workflows, rule evaluation pipelines, and external API calls.
 - **Built and maintained CI/CD pipelines in GitHub Actions**, including skippable versioning workflows, action linting, and coordinated version contracts between `ts-rest` packages across services.
 - **Improved the offline dev CLI** with warm deploy support, seed file renaming, and AWS region enforcement, reducing developer setup friction for local end-to-end testing.
+- **Hardened production observability and security** — Better Stack dashboards and tuned alerting for the document pipeline, systematic PII/credential redaction across telemetry and logs, constant-time secret comparison, and a stored-XSS fix in the portal.
+
+#### **Open Source: effect-workflow-lambda**
+
+- **Built and open-sourced [`effect-workflow-lambda`](https://github.com/sucasa-finance/effect-workflow-lambda)**, a durable workflow runtime running Effect's `@effect/workflow` on AWS Lambda with pluggable persistence backends (MySQL, Postgres, Redis over SQS), three levels of handler abstraction, and one-command local deployment via Pulumi + LocalStack — production-proven on Skip's document extraction pipeline.
+- **Collaborating directly with the Effect core team** (including Effect's author) in a shared channel on the design of a serverless workflow/activity abstraction, contributing upstream feedback on `@effect/sql` dialect support along the way.
 
 #### **AI Coding Agent Orchestration (SAO)**
 
@@ -180,6 +191,7 @@ git log --author="$(git config user.name)" --since="1 year ago" --name-status --
 
 
 ## Open source contributions and Blog
+- effect-workflow-lambda (Durable Effect workflows on AWS Lambda) - Author/maintainer, developed in collaboration with the Effect core team ([repo](https://github.com/sucasa-finance/effect-workflow-lambda))
 - Honojs (Lightweight Express) - docs: update typo and add warning to #url() to use absolute URL ([#203](https://github.com/honojs/website/pull/203))
 - Outstatic (Git-based CMS) - fix: author name check ([#169](https://github.com/avitorio/outstatic/pull/169))
 - borabaloglu/cmdk-base - [core] Update useId dependency ([#3](https://github.com/borabaloglu/cmdk-base/pull/3))
