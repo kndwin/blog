@@ -13,11 +13,50 @@ export function logoHtml(name: string, esc: (s: string) => string) {
   return `<span class="logo logo-mono" aria-hidden="true">${esc(name.trim()[0] ?? "")}</span>`;
 }
 
+/** Tech logos in public/stack/<slug>.svg (Simple Icons, plus Effect's own mark). */
+const STACK: Record<string, [title: string, hex: string]> = {
+  typescript: ["TypeScript", "3178C6"],
+  effect: ["Effect", "000000"],
+  react: ["React", "61DAFB"],
+  amazonwebservices: ["AWS", "232F3E"],
+  postgresql: ["PostgreSQL", "4169E1"],
+  python: ["Python", "3776AB"],
+  clickhouse: ["ClickHouse", "FFCC01"],
+  expo: ["Expo", "1C2024"],
+  vite: ["Vite", "646CFF"],
+  graphql: ["GraphQL", "E10098"],
+  prisma: ["Prisma", "2D3748"],
+  mysql: ["MySQL", "4479A1"],
+  apachekafka: ["Kafka", "231F20"],
+  elasticsearch: ["Elasticsearch", "005571"],
+  bun: ["Bun", "000000"],
+  mapbox: ["Mapbox", "000000"],
+  hono: ["Hono", "E36002"],
+  turso: ["Turso", "4FF8D2"],
+  nextdotjs: ["Next.js", "000000"],
+  nodedotjs: ["Node.js", "5FA04E"],
+};
+
+/** `<!-- stack: react typescript -->` -> a row of muted tech glyphs (brand colour on hover). */
+function stackHtml(slugs: string[]) {
+  const icons = slugs.map((slug) => {
+    const entry = STACK[slug];
+    if (!entry) throw new Error(`Unknown stack slug "${slug}" (add it to STACK in jobs-markdown.ts)`);
+    const [title, hex] = entry;
+    const [r, g, b] = [0, 2, 4].map((k) => parseInt(hex.slice(k, k + 2), 16) / 255);
+    // Near-black brand marks use the ink colour so they stay visible in dark mode.
+    const brand = 0.2126 * r + 0.7152 * g + 0.0722 * b < 0.18 ? "var(--ink)" : `#${hex}`;
+    return `<span class="si" style="--si:url(/stack/${slug}.svg);--brand:${brand}" title="${title}" role="img" aria-label="${title}"></span>`;
+  });
+  return `<div class="stack">${icons.join("")}</div>`;
+}
+
 /**
  * Turns resume-style markdown into the two-column job layout:
  *
  *   ### Org - Role (Dates)   -> <div class="job"><div class="job-head">…</div> …</div>
  *   > blurb right after it    -> moved into the job head (what the company is, its URL)
+ *   <!-- stack: a b -->      -> a row of tech logos under the head
  *   #### Group               -> <details class="group"><summary>…</summary>…</details>
  *
  * Only runs on pages whose frontmatter sets `jobs: true` (the landing page, which
@@ -89,12 +128,21 @@ export function jobsLayout(md: MarkdownIt) {
           i = j;
         }
 
+        // An HTML comment `<!-- stack: a b c -->` next is the tech stack row.
+        let stack = "";
+        const sm = src[i + 1]?.type === "html_block" && src[i + 1].content.match(/^<!--\s*stack:([^>]*?)-->/);
+        if (sm) {
+          stack = stackHtml(sm[1].trim().split(/\s+/));
+          i += 1;
+        }
+
         out.push(
           html(
             `<div class="job"><div class="job-head">${logoHtml(org, esc)}<h3>${esc(org)}</h3>` +
               (role ? `<div class="role">${esc(role)}</div>` : "") +
               (dates ? `<div class="dates">${esc(dates)}</div>` : "") +
               (blurb ? `<div class="blurb">${blurb}</div>` : "") +
+              stack +
               "</div>\n",
           ),
         );

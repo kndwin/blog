@@ -60,6 +60,8 @@ aside: false
 
 > A fintech lender. I work on its AI-assisted credit decisioning platform. [skiploans.com.au](https://skiploans.com.au)
 
+<!-- stack: typescript effect react amazonwebservices -->
+
 - **Drove an AI-assisted credit decisioning platform from first build to business buy-in** over eight months, authoring the PRDs and now onboarding two engineers to scale delivery.
 - **Took 80+ automated decision rules from spec to production** through shadow mode, per-rule feedback and stakeholder sign-off, with zero tolerance for false positives.
 - **Delivered ~960 commits across two codebases in a year**, spanning the decision engine, document AI, a new internal operations product, and a platform migration.
@@ -120,6 +122,8 @@ aside: false
 
 > An AI product-feedback analytics platform. I worked across product, AI and infrastructure. [LinkedIn](https://www.linkedin.com/company/80217607/)
 
+<!-- stack: typescript react python clickhouse amazonwebservices -->
+
 - **Made analytics queries fast at scale** by introducing ClickHouse as the analytics engine end to end, taking heavy queries off the primary database.
 - **Removed two production systems** (a Kubernetes cluster and a vector database) by replacing them with simpler managed alternatives, cutting operational load and cost.
 - **Replaced GPU-hosted ML models with hosted embedding APIs**, right-sizing infrastructure and removing a heavy dependency chain.
@@ -146,6 +150,9 @@ aside: false
 ### Mirvac - Senior Front-end Engineer (Jan 2022 - Aug 2024)
 
 > A major Australian property group. I built its customer-facing web and mobile apps. [mirvac.com](https://www.mirvac.com)
+
+<!-- stack: react expo typescript vite -->
+
 - Achieved "Employee of the Quarter" for delivering mobile of allowing users digital access through the app.
 - Led and implemented marketing website for a new building roll out, generating $500K in converted leads.
 - Improved upgrade efforts of mobile app by moving to Expo prebuilds, reducing upgrade migrations from hours of manual diff checking to an automated 10 seconds CLI command.
@@ -158,6 +165,9 @@ aside: false
 ### Atelier - Full-stack Developer (Aug 2021 - Jan 2022)
 
 > An early-stage Sydney startup. I built its real-time collaboration features across the stack. [atelier.co](https://atelier.co/)
+
+<!-- stack: react graphql prisma postgresql amazonwebservices -->
+
 - Enhanced the front-end by developing reusable components using SASS and Apollo Client, resulting in improved code maintainability and enhanced user experience.
 - Implemented a robust backend infrastructure using Prisma, Nexus, and Apollo Server, ensuring seamless CRUD operations and optimal performance.
 - Established a comprehensive end-to-end testing framework using Cypress and integrated it with Circle CI, enabling automated testing on every branch push and enhancing code quality.
@@ -167,6 +177,9 @@ aside: false
 ### Appian - Solution Engineer (Jan 2020 - Jul 2021)
 
 > An enterprise low-code platform. I supported customer deployments across the stack. [appian.com](https://appian.com)
+
+<!-- stack: amazonwebservices mysql apachekafka elasticsearch -->
+
 - Demonstrated expertise in supporting various components of the Appian stack, including application servers (Tomcat, JBoss), web servers (IIS, Apache), RDBMS (MySQL/Mariadb), Apache Kafka, Elasticsearch, and integrations with Appian.
 - Proficiently handled additional technologies such as AWS Cloud architecture, networking/VPN (IPsec), Linux (SSH/busybox tools), accessibility compliance (WCAG), and resource contention management (CPU/Memory/Threads).
 
@@ -176,6 +189,8 @@ aside: false
 
 > A Sydney town-planning firm. I'm building its geospatial platform for NSW property data. [patchplanning.com.au](https://patchplanning.com.au/)
 
+<!-- stack: effect postgresql react mapbox bun -->
+
 - **Building a full-stack geospatial platform serving NSW cadastre (property parcel) data** — lot lookup API, Mapbox Vector Tile streaming, and an ArcGIS REST compatibility layer.
 - **Designed a zero-downtime snapshot sync flow** that imports ESRI FileGeoDatabase exports via GDAL into PostGIS staging tables, validates the snapshot, and atomically promotes it while existing API routes continue serving the previous data.
 - **Implemented geospatial delivery integrations** for Mapbox Vector Tiles, PMTiles served from Cloudflare R2, and a constrained ArcGIS REST-compatible query endpoint.
@@ -184,12 +199,18 @@ aside: false
 ### Fullsuite - Senior Software Engineer (Contract) (Sep 2023 - Nov 2024)
 
 > A product agency building for early-stage startups. [fullsuite.agency](https://fullsuite.agency/)
+
+<!-- stack: expo react hono turso -->
+
 - Implemented POC with encryption using libsodium CHACHA20-POLY1305 and exposed through Expo Modules.
 - Building Auth, Mobile (Expo), Web app (react), back-end (HonoJS, Turso) for a new startup.
 
 ### Pitbull BSC - Front-end Developer (Contract) (Mar 2021 - Jan 2022)
 
 > A DeFi token project. [bscpitbull.com](https://bscpitbull.com/)
+
+<!-- stack: nextdotjs nodedotjs amazonwebservices graphql -->
+
 - Implemented a Telegram price bot using Node.js, AWS Gateway, AWS Lambda, and Serverless (SLS).
 - Developed PitStop, a Next.js application utilizing ethers.js and web3modal for future application efforts.
 - Built PitChart, a GraphQL-powered data visualization tool displaying OLHC data over time using react-financial-chart.
