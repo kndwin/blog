@@ -21,6 +21,8 @@ git log --author="$(git config user.name)" --since="1 year ago" --name-status --
 
 ## Speaking & Presentations
 - **AI Engineer Sydney, Web Directions (Dec 2026, upcoming):** *"How We Introduced LLMs into Credit Decisioning (Safely)"* [[Speaker page]](https://webdirections.org/ai-engineer/speakers/kevin-nguyen/) [Slides: pending] — a 25-minute conference talk on taking credit assessment from a two-hour manual process to 20–30 minutes without giving up control: high-quality input via ensemble extraction, deterministic and replayable outcomes, and confidence iteration through shadow mode, per-rule feedback and zero tolerance for false positives. Built the animated slide deck myself.
+<img src="./assets/aiei-sydney-talk.png" alt="AI Engineer Sydney 2026 speaker card" width="300" style="border-radius: 8px; margin-bottom: 12px;"/>
+
 - **Codex For Founders Sydney (Jun 2026):** Presented on agentic coding workflows and codebase design for AI agents at the Codex community event, Stone & Chalk Tech Central. [[Event]](https://luma.com/mlai-nrn7) [[Slides]](https://demo.getcave.ai/s/agentic-codebase-todo)
 - **AWS Startup Dev Day Sydney (Sep 2025):** Co-presented *"Real-time analytics with Sauce AI and ClickHouse"* alongside ClickHouse Solutions Architect Johnny Mirza. [[Slides]](https://docs.google.com/presentation/d/1G-uBXJaQa7yHk3tR47r79eQzaFjiIALdUDl8JBmm_H4/edit?usp=sharing)
 <img src="./assets/aws-talk.jpeg" alt="AWS Startup Dev Day Sydney 2025 Banner" width="300" style="border-radius: 8px; margin-bottom: 12px;"/>
