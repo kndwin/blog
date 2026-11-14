@@ -41,11 +41,11 @@ interface Role {
   depth: number[]; // per layer, bottom to top, 0–3
 }
 const ROLES: Role[] = [
-  { name: "Appian", years: "2020–21", note: "Enterprise platform · servers, networking, accessibility", depth: [3, 1, 2, 0, 1] },
-  { name: "Atelier", years: "2021–22", note: "Real-time messaging · GraphQL · cloud migration", depth: [2, 1, 3, 2, 1] },
-  { name: "Mirvac", years: "2022–24", note: "Mobile and web · launch site · 80% faster CI", depth: [2, 0, 1, 3, 2] },
-  { name: "Sauce", years: "2024–25", note: "Analytics engine · research agent · infra-as-code", depth: [3, 3, 3, 2, 2] },
-  { name: "Skip", years: "2026", note: "AI decision systems · rules engine · document AI", depth: [2, 3, 3, 2, 3] },
+  { name: "Appian", years: "2020–21", note: "Enterprise platform · servers, networking, deployment", depth: [3, 0, 0, 0, 0] },
+  { name: "Atelier", years: "2021–22", note: "Real-time messaging · GraphQL · cloud migration", depth: [1, 0, 3, 3, 1] },
+  { name: "Mirvac", years: "2022–24", note: "Mobile and web · launch site · 80% faster CI", depth: [3, 0, 1, 3, 1] },
+  { name: "Sauce", years: "2024–25", note: "Analytics engine · research agent · infra-as-code", depth: [2, 3, 2, 1, 1] },
+  { name: "Skip", years: "2026", note: "AI decision systems · rules engine · document AI", depth: [3, 3, 3, 3, 3] },
   { name: "Contracts", years: "2021–26", note: "Geospatial platform · mobile crypto · data viz", depth: [2, 2, 3, 2, 2] },
 ];
 
