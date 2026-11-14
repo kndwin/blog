@@ -1,6 +1,7 @@
 import { defineConfig, DefaultTheme } from "vitepress";
 import fs from "fs";
 import path from "path";
+import { resumeLayout } from "./resume-markdown";
 
 interface SidebarResult {
   sidebar: DefaultTheme.SidebarItem[];
@@ -140,6 +141,22 @@ const { sidebar, latestPost } = generateManualSidebar();
 export default defineConfig({
   title: "kndwin",
   description: "kndwin's blog",
+  head: [
+    ["link", { rel: "preconnect", href: "https://fonts.googleapis.com" }],
+    ["link", { rel: "preconnect", href: "https://fonts.gstatic.com", crossorigin: "" }],
+    [
+      "link",
+      {
+        rel: "stylesheet",
+        href: "https://fonts.googleapis.com/css2?family=Charis+SIL:ital,wght@0,400;0,700;1,400&display=swap",
+      },
+    ],
+  ],
+  markdown: {
+    config: (md) => {
+      md.use(resumeLayout);
+    },
+  },
   themeConfig: {
     search: { provider: "local" },
     outline: 2,

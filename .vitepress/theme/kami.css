@@ -1,0 +1,249 @@
+/*
+ * Site-wide Kami theme: parchment paper, ink-blue accent, serif reading type.
+ * Tokens are `--r-*`; VitePress's own variables are mapped onto them so every
+ * default-theme component (nav, sidebar, search, outline, code blocks) follows.
+ */
+:root {
+  --r-paper: #f5f4ed;
+  --r-card: #faf9f5;
+  --r-edge: #dedbcf;
+  --r-code: #f0eee6;
+  --r-brand: #1b365d;
+  --r-brand-light: #2d5a8a;
+  --r-pill: #e4ecf5;
+  --r-ink: #141413;
+  --r-dark: #3d3d3a;
+  --r-olive: #504e49;
+  --r-stone: #6b6a64;
+  --r-serif: Charter, "Bitstream Charter", "Charis SIL", Georgia, Palatino, serif;
+  --r-mono: "JetBrains Mono", "SF Mono", ui-monospace, Menlo, Consolas, monospace;
+}
+.dark {
+  --r-paper: #141413;
+  --r-card: #1c1c1a;
+  --r-edge: #33332f;
+  --r-code: #262623;
+  --r-brand: #9db8dc;
+  --r-brand-light: #c3d5ee;
+  --r-pill: #22324a;
+  --r-ink: #f5f4ed;
+  --r-dark: #d6d4ca;
+  --r-olive: #b5b2a7;
+  --r-stone: #8f8c82;
+}
+
+:root,
+.dark {
+  --vp-font-family-base: var(--r-serif);
+  --vp-font-family-mono: var(--r-mono);
+
+  --vp-c-bg: var(--r-paper);
+  --vp-c-bg-alt: var(--r-paper);
+  --vp-c-bg-elv: var(--r-card);
+  --vp-c-bg-soft: var(--r-code);
+  --vp-nav-bg-color: var(--r-paper);
+  --vp-sidebar-bg-color: var(--r-paper);
+  --vp-local-nav-bg-color: var(--r-paper);
+
+  --vp-c-text-1: var(--r-ink);
+  --vp-c-text-2: var(--r-olive);
+  --vp-c-text-3: var(--r-stone);
+
+  --vp-c-divider: var(--r-edge);
+  --vp-c-gutter: var(--r-edge);
+  --vp-c-border: var(--r-edge);
+
+  --vp-c-brand-1: var(--r-brand);
+  --vp-c-brand-2: var(--r-brand-light);
+  --vp-c-brand-3: var(--r-brand);
+  --vp-c-brand-soft: var(--r-pill);
+
+  --vp-code-bg: var(--r-code);
+  --vp-code-color: var(--r-dark);
+  --vp-code-block-bg: var(--r-card);
+  --vp-code-font-size: 0.82em;
+
+  --vp-home-hero-name-color: var(--r-ink);
+}
+
+body {
+  background: var(--r-paper);
+  font-feature-settings: "kern", "liga", "onum";
+}
+
+/* ---------- Nav & sidebar: small mono labels, like the plates ---------- */
+.VPNavBarTitle .title {
+  font-family: var(--r-mono);
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+}
+.VPNavBarMenuLink,
+.VPNavScreenMenuLink {
+  font-family: var(--r-mono);
+  font-size: 12.5px !important;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.VPNavBar:not(.home.top) .divider-line,
+.VPNavBar.has-sidebar .content-body {
+  border-color: var(--r-edge);
+}
+.VPSidebarItem.level-0 > .item > .text,
+.VPSidebarItem.level-0 > .item .text {
+  font-family: var(--r-mono);
+  font-size: 11.5px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--r-stone);
+}
+.VPSidebarItem.level-1 .text {
+  font-size: 15px;
+  line-height: 1.45;
+}
+.VPSidebarItem.is-active > .item .text {
+  color: var(--r-brand);
+}
+.VPSidebarItem.is-active > .item .indicator {
+  background: var(--r-brand);
+}
+.VPDocAsideOutline .outline-title {
+  font-family: var(--r-mono);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--r-stone);
+}
+
+/* ---------- Reading type ---------- */
+.vp-doc {
+  font-size: 17px;
+  line-height: 1.7;
+  color: var(--r-dark);
+}
+.vp-doc p,
+.vp-doc li {
+  line-height: 1.7;
+}
+.vp-doc h1,
+.vp-doc h2,
+.vp-doc h3,
+.vp-doc h4 {
+  font-family: var(--r-serif);
+  color: var(--r-ink);
+  letter-spacing: -0.01em;
+}
+.vp-doc h1 {
+  font-size: 40px;
+  font-weight: 500;
+  letter-spacing: -0.8px;
+}
+.vp-doc h2 {
+  font-size: 26px;
+  font-weight: 500;
+  border-top-color: var(--r-edge);
+}
+.vp-doc h3 {
+  font-size: 20px;
+  font-weight: 600;
+}
+.vp-doc strong {
+  color: var(--r-ink);
+  font-weight: 600;
+}
+.vp-doc a {
+  color: var(--r-brand);
+  font-weight: inherit;
+  text-decoration: underline;
+  text-decoration-color: color-mix(in srgb, var(--r-brand) 35%, transparent);
+  text-underline-offset: 3px;
+}
+.vp-doc a:hover {
+  color: var(--r-brand-light);
+  text-decoration-color: currentColor;
+}
+.vp-doc li::marker {
+  color: var(--r-stone);
+}
+.vp-doc blockquote {
+  border-left: 2px solid var(--r-brand);
+  color: var(--r-olive);
+  font-style: italic;
+}
+.vp-doc :not(pre) > code {
+  font-family: var(--r-mono);
+  border-radius: 3px;
+  padding: 1px 5px;
+}
+.vp-doc div[class*="language-"] {
+  box-shadow: 0 0 0 1px var(--r-edge);
+  border-radius: 8px;
+}
+.vp-doc table {
+  font-size: 15px;
+}
+.vp-doc tr:nth-child(2n) {
+  background: var(--r-card);
+}
+.vp-doc hr {
+  border-top-color: var(--r-edge);
+}
+.vp-doc figure {
+  margin: 28px 0;
+}
+.vp-doc figure img {
+  border-radius: 8px;
+  box-shadow: 0 0 0 1px var(--r-edge);
+}
+.vp-doc figcaption {
+  margin-top: 10px;
+  font-size: 14px;
+  color: var(--r-stone);
+  font-style: italic;
+}
+
+/* ---------- Blog post header (Layout.vue #doc-before) ---------- */
+.blog-post-title {
+  font-family: var(--r-serif);
+  font-weight: 500 !important;
+  letter-spacing: -1px;
+  color: var(--r-ink);
+}
+.blog-post-date {
+  font-family: var(--r-mono);
+  font-size: 11.5px !important;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--r-stone) !important;
+  margin-bottom: 2rem !important;
+}
+
+/* ---------- Home ---------- */
+.VPHome {
+  margin-bottom: 0 !important;
+}
+.VPHome .vp-doc {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 56px 24px 96px;
+}
+.VPHome .vp-doc > p:first-child {
+  font-size: 40px;
+  font-weight: 500;
+  letter-spacing: -0.8px;
+  color: var(--r-ink);
+  margin-top: 0;
+}
+
+/* ---------- Search & misc ---------- */
+.VPLocalSearchBox .shell {
+  background: var(--r-card);
+}
+.DocSearch-Button,
+.VPNavBarSearch .DocSearch-Button {
+  background: var(--r-card);
+  box-shadow: 0 0 0 1px var(--r-edge);
+}
+::selection {
+  background: var(--r-pill);
+}
