@@ -1,14 +1,9 @@
-import { Theme } from "vitepress";
-import DefaultTheme from "vitepress/theme";
+import type { Theme } from "vitepress";
 
-import Layout from "./Layout.vue";
-import StackAnatomy from "./StackAnatomy.vue";
-import "./kami.css";
-import "./resume.css";
+import Paper from "./Paper.vue";
+import "./paper.css";
+
+// A single landing page typeset like a LaTeX paper; no default-theme chrome.
 export default {
-  extends: DefaultTheme,
-  Layout,
-  enhanceApp({ app }) {
-    app.component("StackAnatomy", StackAnatomy);
-  },
+  Layout: Paper,
 } satisfies Theme;

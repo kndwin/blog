@@ -10,26 +10,13 @@ aside: false
 ---
 
 <header class="hero">
-  <p class="updated">Resume · Updated November 2026</p>
-  <h1>Kevin Nguyen</h1>
-  <p class="role">Senior Product Engineer · Sydney · 6 years across fintech, AI, property and enterprise software</p>
-  <p class="lede">I’m a product engineer who has spent the last six years shipping across the whole stack: enterprise platforms at Appian, real-time collaboration at Atelier, mobile and web at Mirvac, analytics and AI infrastructure at Sauce, and AI decision systems at Skip. I like owning problems end to end, from the product and the data to the infrastructure and the people who use it.</p>
-  <div class="links">
-    <a href="https://github.com/kndwin">GitHub</a>
-    <a href="https://linkedin.com/in/kndwin">LinkedIn</a>
-    <a href="mailto:me@kndwin.dev">me@kndwin.dev</a>
-    <a href="javascript:window.print()">Download PDF</a>
-  </div>
+  <p class="lede">degenerate driven development</p>
   <div class="tokens">
     <span><b>Focus</b>Product engineering · AI systems · platform &amp; infrastructure</span>
     <span><b>Domains</b>Fintech · AI analytics · property · enterprise</span>
     <span><b>Stack</b>TypeScript · React · Effect · AWS</span>
   </div>
 </header>
-
-<div class="hero-fig">
-<StackAnatomy />
-</div>
 
 ## Speaking
 
@@ -47,7 +34,7 @@ aside: false
     <div class="b">
       <span class="meta">Sep 2025 · AWS Startup Dev Day Sydney</span>
       <span class="t">Real-time analytics with Sauce AI and ClickHouse</span>
-      <span class="tl"><a href="https://docs.google.com/presentation/d/1G-uBXJaQa7yHk3tR47r79eQzaFjiIALdUDl8JBmm_H4/edit?usp=sharing">Slides</a><span>Co-presented with ClickHouse</span></span>
+      <span class="tl"><a href="https://startups.aws.com/events/aws-startup-dev-day-sydney-2025">Event</a><a href="https://docs.google.com/presentation/d/1G-uBXJaQa7yHk3tR47r79eQzaFjiIALdUDl8JBmm_H4/edit?usp=sharing">Slides</a><span>Co-presented with ClickHouse</span></span>
     </div>
   </article>
 </div>
@@ -63,14 +50,17 @@ aside: false
 - **Frontend** React 19, TypeScript, Next.js, Vite, TanStack Router, Tailwind CSS, shadcn/ui, Apollo Client, pdf.js, Web Extensions (WXT)
 - **Backend** Node.js, Bun, Python, Effect 4 & Effect Schema, Drizzle, Prisma, Postgres, MySQL, ClickHouse, Redis, DuckDB, GraphQL, BullMQ
 - **Cloud** AWS (Lambda, ECS, SQS, EventBridge, CloudFront, RDS, S3, WAF, PrivateLink), CDK, Serverless, Pulumi, LocalStack, Kubernetes, Vercel, Railway, Cloudflare
-- **AI & data** Claude, Gemini, Extend AI, OpenAI, OpenRouter, Bedrock · ensemble extraction, LLM evals, shadow mode, backtesting, entity resolution, RAG, clustering, embeddings
+- **AI & data** Claude, Gemini, Extend AI, OpenAI, OpenRouter, Bedrock · LLM evals, shadow mode, backtesting, entity resolution, RAG, clustering, embeddings
 - **Ops & tooling** OpenTelemetry, Better Stack, Sentry, Grafana, GitHub Actions (OIDC), Blacksmith · Claude Code, Cursor, OpenCode, WebMCP, Nix, Vim, Tmux
 
+<!-- #region work -->
 ## Work experience
 
 ### Skip - Senior Product Engineer (Jan 2026 - Current)
 
-- **Cut a 1–2 hour expert review to 20–30 minutes per case (~75% faster)** by leading engineering on an AI-assisted decision platform, while keeping a human accountable for every outcome.
+> A fintech lender. I work on its AI-assisted credit decisioning platform. [skiploans.com.au](https://skiploans.com.au)
+
+- **Drove an AI-assisted credit decisioning platform from first build to business buy-in** over eight months, authoring the PRDs and now onboarding two engineers to scale delivery.
 - **Took 80+ automated decision rules from spec to production** through shadow mode, per-rule feedback and stakeholder sign-off, with zero tolerance for false positives.
 - **Delivered ~960 commits across two codebases in a year**, spanning the decision engine, document AI, a new internal operations product, and a platform migration.
 - **One of the company's main external engineering voices**, through the engineering blog and conference talks.
@@ -100,7 +90,7 @@ aside: false
 
 #### **Platform & architecture**
 
-- **Introduced Effect into a production monolith incrementally**, from a dev-only router to all environments and onto the 4.0 GA release.
+- **Established the team's Effect standards**: introduced Effect into the production monolith incrementally (through the 4.0 GA release), with shared patterns, lint rules and team upskilling.
 - **Defined a domain-driven code layout with lint-enforced boundaries**, so architectural rules are checked in CI rather than in code review.
 - **Built data provenance tracking** recording whether every value was declared, extracted or verified.
 - **Built and open-sourced a durable workflow runtime for AWS Lambda** ([`effect-workflow-lambda`](https://github.com/sucasa-finance/effect-workflow-lambda)), developed with the Effect core team and running the production document pipeline.
@@ -128,6 +118,8 @@ aside: false
 
 ### Sauce - Senior Software Engineer (Aug 2024 - Dec 2025)
 
+> An AI product-feedback analytics platform. I worked across product, AI and infrastructure.
+
 - **Made analytics queries fast at scale** by introducing ClickHouse as the analytics engine end to end, taking heavy queries off the primary database.
 - **Removed two production systems** (a Kubernetes cluster and a vector database) by replacing them with simpler managed alternatives, cutting operational load and cost.
 - **Replaced GPU-hosted ML models with hosted embedding APIs**, right-sizing infrastructure and removing a heavy dependency chain.
@@ -152,6 +144,8 @@ aside: false
 - **Upgraded the browser extension to Manifest V3.**
 
 ### Mirvac - Senior Front-end Engineer (Jan 2022 - Aug 2024)
+
+> A major Australian property group. I built its customer-facing web and mobile apps. [mirvac.com](https://www.mirvac.com)
 - Achieved "Employee of the Quarter" for delivering mobile of allowing users digital access through the app.
 - Led and implemented marketing website for a new building roll out, generating $500K in converted leads.
 - Improved upgrade efforts of mobile app by moving to Expo prebuilds, reducing upgrade migrations from hours of manual diff checking to an automated 10 seconds CLI command.
@@ -162,6 +156,8 @@ aside: false
 - Built a live retro feedback tool for other teams and initiated a company-wide hackathon.
 
 ### Atelier - Full-stack Developer (Aug 2021 - Jan 2022)
+
+> An early-stage Sydney startup. I built its real-time collaboration features across the stack.
 - Enhanced the front-end by developing reusable components using SASS and Apollo Client, resulting in improved code maintainability and enhanced user experience.
 - Implemented a robust backend infrastructure using Prisma, Nexus, and Apollo Server, ensuring seamless CRUD operations and optimal performance.
 - Established a comprehensive end-to-end testing framework using Cypress and integrated it with Circle CI, enabling automated testing on every branch push and enhancing code quality.
@@ -169,6 +165,8 @@ aside: false
 - Led the migration of the existing Postgres database to AWS, leveraging the cloud platform's capabilities to enhance control, scalability, and uptime, ensuring a more robust and reliable database infrastructure.
 
 ### Appian - Solution Engineer (Jan 2020 - Jul 2021)
+
+> An enterprise low-code platform. I supported customer deployments across the stack. [appian.com](https://appian.com)
 - Demonstrated expertise in supporting various components of the Appian stack, including application servers (Tomcat, JBoss), web servers (IIS, Apache), RDBMS (MySQL/Mariadb), Apache Kafka, Elasticsearch, and integrations with Appian.
 - Proficiently handled additional technologies such as AWS Cloud architecture, networking/VPN (IPsec), Linux (SSH/busybox tools), accessibility compliance (WCAG), and resource contention management (CPU/Memory/Threads).
 
@@ -176,19 +174,27 @@ aside: false
 
 ### Patch - Senior Software Engineer (Contract) (Aug 2026 - Current)
 
+> A geospatial platform for NSW property data.
+
 - **Building a full-stack geospatial platform serving NSW cadastre (property parcel) data** — lot lookup API, Mapbox Vector Tile streaming, and an ArcGIS REST compatibility layer.
 - **Designed a zero-downtime snapshot sync flow** that imports ESRI FileGeoDatabase exports via GDAL into PostGIS staging tables, validates the snapshot, and atomically promotes it while existing API routes continue serving the previous data.
 - **Implemented geospatial delivery integrations** for Mapbox Vector Tiles, PMTiles served from Cloudflare R2, and a constrained ArcGIS REST-compatible query endpoint.
 - **Stack**: Bun, Effect v4 `HttpApi` with schema-derived OpenAPI docs, Drizzle, PostgreSQL 16 + PostGIS (GiST spatial indexing), React 19/Mapbox GL dashboard, and Railway infrastructure-as-code.
 
 ### Fullsuite - Senior Software Engineer (Contract) (Sep 2023 - Nov 2024)
+
+> An early-stage startup.
 - Implemented POC with encryption using libsodium CHACHA20-POLY1305 and exposed through Expo Modules.
 - Building Auth, Mobile (Expo), Web app (react), back-end (HonoJS, Turso) for a new startup.
 
 ### Pitbull BSC - Front-end Developer (Contract) (Mar 2021 - Jan 2022)
+
+> A Web3 project.
 - Implemented a Telegram price bot using Node.js, AWS Gateway, AWS Lambda, and Serverless (SLS).
 - Developed PitStop, a Next.js application utilizing ethers.js and web3modal for future application efforts.
 - Built PitChart, a GraphQL-powered data visualization tool displaying OLHC data over time using react-financial-chart.
+
+<!-- #endregion work -->
 
 ## Education and Certifications
 
@@ -213,7 +219,7 @@ aside: false
 ### Cave — Founder & Engineer (2026 - Current)
 - Link: [getcave.ai](https://getcave.ai)
 - Side project and stealth startup with an early user base, building real-time collaborative messaging with channels, threads, task boards, and AI agent integration across web, desktop (Electron), and mobile (React Native/Expo).
-- Local-first architecture using TanStack Electric with client-side SQLite, backed by a Hono/tRPC/Drizzle/Postgres API built on Effect.
+- Local-first architecture using TanStack Electric with client-side SQLite, backed by a Drizzle/Postgres API built on Effect.
 - Cloudflare and Railway infrastructure with GitHub Actions CI/CD, shared web/Electron/mobile packages, and deterministic scene-based QA for seeded environments.
 
 ### Hayom
@@ -235,3 +241,12 @@ aside: false
 - Implemented a PDF annotator using `pdf.js`.
 
 <p class="colophon">This page started as <code>git log --author="$(git config user.name)" --since="1 year ago"</code> across the repos I work in, summarised with an LLM (Claude / Gemini), then edited by hand. Fig. 1 is drawn in the style of <a href="https://github.com/wheresryan22/anatomy">Anatomy</a>.</p>
+
+<footer class="hero">
+  <div class="links">
+    <a href="https://github.com/kndwin">GitHub</a>
+    <a href="https://linkedin.com/in/kndwin">LinkedIn</a>
+    <a href="mailto:me@kndwin.dev">me@kndwin.dev</a>
+    <a href="/kevin-nguyen-resume.pdf" download>Download PDF</a>
+  </div>
+</footer>
