@@ -118,7 +118,7 @@ aside: false
 
 ### Sauce - Senior Software Engineer (Aug 2024 - Dec 2025)
 
-> An AI product-feedback analytics platform. I worked across product, AI and infrastructure.
+> An AI product-feedback analytics platform. I worked across product, AI and infrastructure. [LinkedIn](https://www.linkedin.com/company/80217607/)
 
 - **Made analytics queries fast at scale** by introducing ClickHouse as the analytics engine end to end, taking heavy queries off the primary database.
 - **Removed two production systems** (a Kubernetes cluster and a vector database) by replacing them with simpler managed alternatives, cutting operational load and cost.
@@ -157,7 +157,7 @@ aside: false
 
 ### Atelier - Full-stack Developer (Aug 2021 - Jan 2022)
 
-> An early-stage Sydney startup. I built its real-time collaboration features across the stack.
+> An early-stage Sydney startup. I built its real-time collaboration features across the stack. [atelier.co](https://atelier.co/)
 - Enhanced the front-end by developing reusable components using SASS and Apollo Client, resulting in improved code maintainability and enhanced user experience.
 - Implemented a robust backend infrastructure using Prisma, Nexus, and Apollo Server, ensuring seamless CRUD operations and optimal performance.
 - Established a comprehensive end-to-end testing framework using Cypress and integrated it with Circle CI, enabling automated testing on every branch push and enhancing code quality.
@@ -174,7 +174,7 @@ aside: false
 
 ### Patch - Senior Software Engineer (Contract) (Aug 2026 - Current)
 
-> A geospatial platform for NSW property data.
+> A Sydney town-planning firm. I'm building its geospatial platform for NSW property data. [patchplanning.com.au](https://patchplanning.com.au/)
 
 - **Building a full-stack geospatial platform serving NSW cadastre (property parcel) data** — lot lookup API, Mapbox Vector Tile streaming, and an ArcGIS REST compatibility layer.
 - **Designed a zero-downtime snapshot sync flow** that imports ESRI FileGeoDatabase exports via GDAL into PostGIS staging tables, validates the snapshot, and atomically promotes it while existing API routes continue serving the previous data.
@@ -183,13 +183,13 @@ aside: false
 
 ### Fullsuite - Senior Software Engineer (Contract) (Sep 2023 - Nov 2024)
 
-> An early-stage startup.
+> A product agency building for early-stage startups. [fullsuite.agency](https://fullsuite.agency/)
 - Implemented POC with encryption using libsodium CHACHA20-POLY1305 and exposed through Expo Modules.
 - Building Auth, Mobile (Expo), Web app (react), back-end (HonoJS, Turso) for a new startup.
 
 ### Pitbull BSC - Front-end Developer (Contract) (Mar 2021 - Jan 2022)
 
-> A Web3 project.
+> A DeFi token project. [bscpitbull.com](https://bscpitbull.com/)
 - Implemented a Telegram price bot using Node.js, AWS Gateway, AWS Lambda, and Serverless (SLS).
 - Developed PitStop, a Next.js application utilizing ethers.js and web3modal for future application efforts.
 - Built PitChart, a GraphQL-powered data visualization tool displaying OLHC data over time using react-financial-chart.

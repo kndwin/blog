@@ -14,6 +14,12 @@ export default defineConfig({
     },
   },
   head: [
+    // Apply a saved light/dark choice before first paint (otherwise the OS setting wins).
+    [
+      "script",
+      {},
+      `try{var t=localStorage.getItem("theme");if(t==="light"||t==="dark")document.documentElement.classList.add(t)}catch(e){}`,
+    ],
     ["link", { rel: "preconnect", href: "https://fonts.googleapis.com" }],
     ["link", { rel: "preconnect", href: "https://fonts.gstatic.com", crossorigin: "" }],
     [

@@ -1,4 +1,17 @@
+import { existsSync } from "node:fs";
+import { join } from "node:path";
 import type MarkdownIt from "markdown-it";
+
+const LOGO_DIR = join(__dirname, "..", "public", "logos");
+
+/** A company logo from public/logos/<slug>.png, or a lettered square when there is none. */
+export function logoHtml(name: string, esc: (s: string) => string) {
+  const slug = name.toLowerCase().split(/\s+/)[0].replace(/[^a-z0-9]/g, "");
+  if (existsSync(join(LOGO_DIR, `${slug}.png`))) {
+    return `<img class="logo" src="/logos/${slug}.png" alt="" width="40" height="40" />`;
+  }
+  return `<span class="logo logo-mono" aria-hidden="true">${esc(name.trim()[0] ?? "")}</span>`;
+}
 
 /**
  * Turns resume-style markdown into the two-column job layout:
@@ -20,6 +33,7 @@ export function jobsLayout(md: MarkdownIt) {
     const out: typeof src = [];
     let inJob = false;
     let inGroup = false;
+    let inContracts = false;
 
     const html = (content: string) => {
       const t = new state.Token("html_block", "", 0);
@@ -36,11 +50,25 @@ export function jobsLayout(md: MarkdownIt) {
       inJob = false;
     };
 
+    const closeContracts = () => {
+      if (inContracts) out.push(html("</details>\n"));
+      inContracts = false;
+    };
+
     for (let i = 0; i < src.length; i++) {
       const tok = src[i];
 
       if (tok.type === "heading_open" && tok.tag === "h2") {
         closeJob();
+        closeContracts();
+        // "## Contract work" becomes one collapsed block wrapping those jobs.
+        const title = src[i + 1].content.trim();
+        if (/contract/i.test(title)) {
+          out.push(html(`<details class="contracts"><summary>${esc(title)}</summary>\n`));
+          inContracts = true;
+          i += 2;
+          continue;
+        }
         out.push(tok);
         continue;
       }
@@ -63,7 +91,7 @@ export function jobsLayout(md: MarkdownIt) {
 
         out.push(
           html(
-            `<div class="job"><div class="job-head"><h3>${esc(org)}</h3>` +
+            `<div class="job"><div class="job-head">${logoHtml(org, esc)}<h3>${esc(org)}</h3>` +
               (role ? `<div class="role">${esc(role)}</div>` : "") +
               (dates ? `<div class="dates">${esc(dates)}</div>` : "") +
               (blurb ? `<div class="blurb">${blurb}</div>` : "") +
@@ -86,11 +114,15 @@ export function jobsLayout(md: MarkdownIt) {
       }
 
       // Anything outside a job (a new section's prose) ends the current job.
-      if (inJob && tok.type === "html_block" && /<!--\s*#endregion/.test(tok.content)) closeJob();
+      if (tok.type === "html_block" && /<!--\s*#endregion/.test(tok.content)) {
+        closeJob();
+        closeContracts();
+      }
       out.push(tok);
     }
 
     closeJob();
+    closeContracts();
     state.tokens = out;
   });
 }
